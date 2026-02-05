@@ -20,7 +20,7 @@ const html = document.documentElement;
 themeBtn.addEventListener("click", () => {
   const isNight = html.dataset.theme === "night";
   html.dataset.theme = isNight ? "day" : "night";
-  themeBtn.textContent = isNight ? "🌞 day mode" : "🌙 night mode";
+  themeBtn.textContent = isNight ? "Light Mode" : "Dark Mode";
 });
 
 /* ---------- Collapsible About ---------- */
@@ -100,5 +100,6 @@ updateDiscordTheme();
 themeBtn.addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 50);
 });
+
 
 /* ---------- End of Script ---------- */
