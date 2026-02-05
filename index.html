@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhowyen</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Ambient Audio -->
+  <audio id="forest-audio" loop preload="none">
+    <source src="assets/audio/forest.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Controls -->
+  <button id="audio-toggle"> ambience: off</button>
+  <button id="theme-toggle">🌙 night mode</button>
+
+  <div class="page">
+
+    <!-- Profile Column -->
+    <aside class="profile box">
+      <img src="assets/pics/avatar.jpg" alt="Rhowyen Avatar" class="avatar" />
+      <h1>Rhowyen</h1>
+      <p>clown by day, luring you to the enchanted forest by night</p>
+      <p class="status" data-live="false">🌙 Offline</p>
+      <h2> The Community Server!</h2>
+<p>Join us on Discord to hang out, share art, and chat about all the chaos we create together!</p>
+
+<button class="discord-toggle">
+  ~ Join the Community ~
+</button>
+
+<div class="discord-widget">
+  <iframe
+    id="discord-iframe"
+    src="https://discord.com/widget?id=1219428215546712117&theme=dark"
+    allowtransparency="true"
+    frameborder="0"
+    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+  </iframe>
+</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content box">
+
+      <img
+        id="offline-banner"
+        src="assets/pics/offlinebanner.jpg"
+        alt="Offline banner">
+
+      <div class="note">
+         Stream Schedule subject to change! Follow me on social media for updates.
+      </div>
+
+      <section class="about">
+        <button class="collapse-toggle">About Me</button>
+        <div class="collapse-content">
+          <p>
+            Hi! I’m Rhowyen, a green haired, clown-loving, cozy streamer who loves chill games, pixie
+            forest aesthetics, random lore drops, and hanging out with my friends online.
+            We balance clownish antics with relaxing vibes and adventuring through
+            beautiful virtual worlds. 
+            Join us for some laid-back fun 
+            with a side of whimsy and bullying of and from chat!
+          </p>
+        </div>
+      </section>
+
+      <section class="links">
+        <h2>~ My Links ~</h2>
+        <a href="https://www.twitch.tv/rhowyen">Twitch</a>
+        <a href="#https://www.youtube.com/@rhowyen">YouTube</a>
+        <a href="https://www.throne.com/rhowyen">Wishlist</a>
+        <a href="https://www.instagram.com/rhowyen/">Instagram</a>
+        <a href="https://www.threads.net/@rhowyen">Threads</a>
+        <a href="https://ko-fi.com/rhowyen">Ko-fi</a>
+        <a href="https://rhowyen-shop.fourthwall.com">Merch</a>
+        <a href="https://rhowyen.substack.com/">Substack</a>
+        <a href="https://twitter.com/rh0wyen">Twitter</a>
+        <!-- <a href="https://www.patreon.com/rhowyen">Patreon</a> -->
+      </section>
+
+      <!-- <section class="guestbook box">
+        <h2> Guestbook</h2>
+        <p><strong>MossWizard:</strong> unmatched vibes</p>
+        <p><strong>LeafLover99:</strong> i never want to leave</p>
+      </section> -->
+      </main>
+
+    <!-- Schedule Column -->
+    <aside class="schedule box">
+      <h2>~ Schedule ~</h2>
+      <ul>
+        <li>Mon — Cozy Chats</li>
+        <li>Wed — Zelda Adventures</li>
+        <li>Sun — Weekly Winddown</li>
+      </ul>
+      <p><em>Timezone: EST</em></p>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
