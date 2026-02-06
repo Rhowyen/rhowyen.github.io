@@ -42,7 +42,8 @@ rhowyen.github.io
 ├── script.js         # Interactivity and toggles
 │
 ├── assets/
-│   ├── pics/         # Images (avatar, banners, cursor)
+│   ├── pics/ # Images (avatar, banners, cursor)
+|        └──  icons/ # Icons including favicon    
 │   └── audio/        # Ambient sound files
 │
 └── README.md
