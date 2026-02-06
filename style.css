@@ -78,8 +78,8 @@ a {
 }
 
 .status[data-live="false"] {
-  background: #444;
-  color: #e6efe6;
+  background: #cde7ca;
+  
 }
 
 /* ---------- Links ---------- */
@@ -248,6 +248,7 @@ a {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
+
 
 
 
