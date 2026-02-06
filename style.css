@@ -203,3 +203,50 @@ a {
   }
 }
 
+/* ---------- Top 8 ---------- */
+.top8 {
+  margin-top: 1.2rem;
+}
+
+.top8 h2 {
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.top8-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.top8-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 0.4rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.top8-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+}
+
+.top8-card span {
+  display: block;
+  opacity: 0.85;
+}
+
+/* hover = subtle MySpace flex */
+.top8-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+
+
