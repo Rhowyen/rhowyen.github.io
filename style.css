@@ -73,6 +73,13 @@ a {
   font-size: 0.85rem;
 }
 
+.status[data-live="true"] {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-block;
+}
+
 /* Live Status Theme-Aware Colors */
 html[data-theme="night"] .status[data-live="true"] {
   background: #2a2f25;      /* dark but readable */
@@ -86,22 +93,6 @@ html[data-theme="day"] .status[data-live="true"] {
   border: 1px solid #c1c4b8;
 }
 
-/* Optional padding + shape*/
-.status[data-live="true"] {
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  font-weight: 600;
-  display: inline-block;
-}
-
-/* .status[data-live="true"] {
-  background: #3d6b3d;
-}
-
-.status[data-live="false"] {
-  background: #444;
-  
-} */
 
 /* ---------- Links ---------- */
 .links a {
@@ -269,6 +260,7 @@ html[data-theme="day"] .status[data-live="true"] {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
+
 
 
 
