@@ -117,8 +117,14 @@ html[data-theme="day"] .status[data-live="true"] {
   border: 1px solid #6fbf8e;
   box-shadow: 0 0 6px rgba(80, 160, 120, 0.35);
 }
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(120,255,180,0.25); }
+  50% { box-shadow: 0 0 14px rgba(120,255,180,0.45); }
+}
 
-
+.status[data-live="true"] {
+  animation: glow 2.5s ease-in-out infinite;
+}
 
 /* ---------- Links ---------- */
 .links a {
@@ -286,6 +292,7 @@ html[data-theme="day"] .status[data-live="true"] {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
+
 
 
 
