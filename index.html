@@ -37,40 +37,63 @@
   <div class="page">
  
     <!-- Profile Column -->
-    <aside class="profile bg-gray-900 text-white rounded-xl p-6 flex flex-col items-center gap-4 w-full lg:w-64">
-  <!-- Avatar -->
-  <img src="assets/pics/avatar.jpg" alt="Rhowyen Avatar" class="w-32 h-32 rounded-lg object-cover" />
+    <aside class="profile box flex flex-col items-center gap-6 w-full lg:w-64 lg:flex-shrink-0">
 
-  <!-- Name & Status -->
+  <!-- Avatar -->
+  <img 
+    src="assets/pics/avatar.jpg" 
+    alt="Rhowyen Avatar" 
+    class="w-32 h-32 rounded-xl object-cover border border-white/10"
+  />
+
+  <!-- Name + Status -->
   <div class="text-center">
     <h1 class="text-2xl font-serif">Rhowyen</h1>
-    <p class="text-sm italic">Some know me as the Clown Queen</p>
-    <p class="status mt-2 inline-block px-3 py-1 rounded-full text-sm font-semibold" data-live="false">Currently: Offline</p>
-    <p class="mt-1 text-xs">Find me live on Twitch and YouTube</p>
+    <p class="text-sm italic mt-1">Some know me as the Clown Queen</p>
+
+    <p 
+      class="status mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold border border-white/20" 
+      data-live="false"
+    >
+      Currently: Offline
+    </p>
+
+    <p class="mt-2 text-sm">
+      Find me live on Twitch and YouTube
+    </p>
   </div>
 
   <!-- Discord Section -->
-  <div class="w-full mt-4">
-    <h2 class="text-lg font-semibold text-center mb-2">~ The Community Server! ~</h2>
-    <p class="text-sm text-center mb-2">Join us on Discord to hang out, share art, and chat about all the chaos we create together!</p>
-    <!-- Toggle button visible on mobile -->
-    <button class="discord-toggle w-full bg-emerald-700 text-white py-2 rounded-lg font-semibold mb-2 lg:hidden">
+  <div class="w-full flex flex-col items-center">
+
+    <h2 class="text-lg font-semibold text-center mb-2">
+      ~ The Community Server! ~
+    </h2>
+
+    <p class="text-sm text-center mb-3 px-2">
+      Join us on Discord to hang out, share art, and chat about all the chaos we create together!
+    </p>
+
+    <!-- Mobile Toggle Button -->
+    <button class="discord-toggle w-full py-2 rounded-full font-semibold border border-white/20 transition hover:scale-105 lg:hidden">
       ~ Join the Community ~
     </button>
-    <!-- Discord iframe -->
-    <div class="discord-widget w-full h-96 rounded-lg overflow-hidden shadow-inner hidden lg:block">
+
+    <!-- Discord Widget -->
+    <div class="discord-widget w-full mt-3 rounded-xl overflow-hidden border border-white/10 shadow-inner hidden lg:block">
       <iframe
         id="discord-iframe"
         src="https://discord.com/widget?id=1219428215546712117&theme=dark"
-        class="w-full h-full"
+        class="w-full h-96"
         allowtransparency="true"
         frameborder="0"
         sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
       </iframe>
     </div>
-  </div>
-</aside>
 
+  </div>
+
+</aside>
 
     <!-- Main Column -->
     <main class="content box">
@@ -234,6 +257,7 @@ animateParticles();
   
 </body>
 </html>
+
 
 
 
