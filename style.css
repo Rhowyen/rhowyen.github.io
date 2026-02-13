@@ -251,6 +251,14 @@ html[data-theme="day"] .status[data-live="true"] {
     display: block;
   }
 }
+@media (max-width: 600px) {
+  .floating-controls {
+    flex-direction: column;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
 
 /* ---------- Top 8 ---------- */
 .top8 {
@@ -385,6 +393,7 @@ html[data-theme="day"] .status[data-live="true"] {
 .stream-btn:hover {
   transform: scale(1.05);
 }
+
 
 
 
