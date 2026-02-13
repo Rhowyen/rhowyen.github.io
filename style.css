@@ -293,6 +293,53 @@ html[data-theme="day"] .status[data-live="true"] {
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
+.stream-btn {
+  position: relative;
+  overflow: hidden;
+  @apply flex items-center justify-center
+         bg-zinc-900 text-white
+         border border-emerald-600/30
+         rounded-2xl py-6 font-semibold text-lg
+         transition-all duration-300
+         hover:scale-105;
+}
+
+/* Ripple */
+.stream-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: scale(1);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.8s;
+}
+
+.stream-btn:active::after {
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+}
+
+/* Twitch purple live glow */
+.twitch-live {
+  box-shadow:
+    0 0 15px rgba(145,70,255,0.7),
+    0 0 30px rgba(145,70,255,0.5);
+}
+
+/* Floating animation */
+@keyframes liveFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.live-float {
+  animation: liveFloat 2.5s ease-in-out infinite;
+}
 
 
 
