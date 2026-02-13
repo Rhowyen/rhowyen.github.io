@@ -166,26 +166,30 @@ html[data-theme="day"] .status[data-live="true"] {
 }
 
 /* ---------- Floating Buttons ---------- */
-#audio-toggle,
-#theme-toggle {
+.floating-controls {
   position: fixed;
-  color: var(--text);
-  bottom: 1rem;
-  background: var(--accent);
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  cursor: pointer;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 1rem;
   z-index: 1000;
 }
 
-#audio-toggle {
-  right: 1rem;
+.floating-controls button {
+  color: var(--text);
+  background: var(--accent);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
-#theme-toggle {
-  right: 9rem;
+.floating-controls button:hover {
+  transform: translateY(-2px);
 }
+
 
 /* ---------- Sparkles ---------- */
 .sparkle {
@@ -381,6 +385,7 @@ html[data-theme="day"] .status[data-live="true"] {
 .stream-btn:hover {
   transform: scale(1.05);
 }
+
 
 
 
