@@ -171,8 +171,49 @@
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>
+  <canvas id="particles" class="fixed inset-0 -z-10"></canvas>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 40; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 2,
+    speed: Math.random() * 0.5 + 0.2
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(34,197,94,0.4)";
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.y -= p.speed;
+    if (p.y < 0) p.y = canvas.height;
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+</script>
+  
 </body>
 </html>
+
 
 
 
