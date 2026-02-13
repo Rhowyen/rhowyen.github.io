@@ -78,21 +78,21 @@ a {
   letter-spacing: 0.02em;
 }
 
-/* 🌙 OFFLINE — Night mode */
+/*  OFFLINE — Night mode */
 html[data-theme="night"] .status[data-live="false"] {
   background: rgba(40, 44, 40, 0.9);
   color: #cfd8cf;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* 🌞 OFFLINE — Day mode */
+/* OFFLINE — Day mode */
 html[data-theme="day"] .status[data-live="false"] {
   background: rgba(235, 240, 232, 0.95);
   color: #2a332a;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* 🔴 LIVE — Night mode */
+/* LIVE — Night mode */
 html[data-theme="night"] .status[data-live="true"] {
   background: linear-gradient(
     135deg,
@@ -106,7 +106,7 @@ html[data-theme="night"] .status[data-live="true"] {
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-/* 🔴 LIVE — Day mode */
+/*  LIVE — Day mode */
 html[data-theme="day"] .status[data-live="true"] {
   background: linear-gradient(
     135deg,
@@ -340,6 +340,7 @@ html[data-theme="day"] .status[data-live="true"] {
 .live-float {
   animation: liveFloat 2.5s ease-in-out infinite;
 }
+
 
 
 
