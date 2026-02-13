@@ -364,15 +364,25 @@ html[data-theme="day"] .status[data-live="true"] {
 }
 
 .stream-btn {
-  position: relative;
-  overflow: hidden;
-  @apply flex items-center justify-center
-         bg-zinc-900 text-white
-         border border-emerald-600/30
-         rounded-2xl py-6 font-semibold text-lg
-         transition-all duration-300
-         hover:scale-105;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #18181b; /* zinc-900 */
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: 1px solid rgba(16,185,129,0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
+
+.stream-btn:hover {
+  transform: scale(1.05);
+}
+
+
 
 
 
