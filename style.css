@@ -394,6 +394,62 @@ html[data-theme="day"] .status[data-live="true"] {
   transform: scale(1.05);
 }
 
+/* ---------- Glass Social Links ---------- */
+
+.social-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin: 0.4rem 0;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  position: relative;
+  transition: all 0.25s ease;
+  
+  /* Glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/*  Night mode glass */
+html[data-theme="night"] .social-link {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f0f6ef;
+}
+
+/*  Day mode glass */
+html[data-theme="day"] .social-link {
+  background: rgba(255, 255, 255, 0.6);
+  color: #1f2a1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Twitch hover glow */
+.social-link.twitch:hover {
+  box-shadow: 0 0 14px rgba(145, 70, 255, 0.6);
+  border-color: rgba(145, 70, 255, 0.6);
+}
+
+.status[data-live="true"] ~ .social-link.twitch {
+  box-shadow: 0 0 18px rgba(145, 70, 255, 0.6);
+}
+
+
+/* YouTube hover glow */
+.social-link.youtube:hover {
+  box-shadow: 0 0 14px rgba(255, 0, 0, 0.6);
+  border-color: rgba(255, 0, 0, 0.6);
+}
+
+
 
 
 
