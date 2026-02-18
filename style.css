@@ -478,7 +478,7 @@ html[data-theme="day"] .social-link {
 
 .streams-videos h2, .streams-videos h3 {
   font-family: 'IM Fell English', serif;
-  color: #5a3c2b; /* warm brown */
+  color: var(--text);
 }
 
 .stream-embeds {
@@ -490,6 +490,7 @@ html[data-theme="day"] .social-link {
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+
 
 
 
