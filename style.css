@@ -493,7 +493,7 @@ html[data-theme="day"] .social-link {
 
 .writing-essays h2 {
   font-family: 'IM Fell English', serif;
-  color: #a35b4c; /* muted red */
+  color: var(--text)
 }
 
 .cozy-illustrations img {
@@ -503,6 +503,7 @@ html[data-theme="day"] .social-link {
   max-width: 250px;
   margin: auto;
 }
+
 
 
 
