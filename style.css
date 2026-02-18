@@ -204,11 +204,11 @@ html[data-theme="day"] .status[data-live="true"] {
   will-change: transform, opacity;
 }
 
-body.dark .sparkle {
+html[data-theme="night"] .sparkle {
   filter: drop-shadow(0 0 6px #caffd4);
 }
 
-body.light .sparkle {
+html[data-theme="day"] .sparkle {
   filter: drop-shadow(0 0 6px #88ffcc);
 }
 
@@ -480,6 +480,7 @@ html[data-theme="day"] .social-link {
 .social-link.youtube:hover {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
 }
+
 
 
 
