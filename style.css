@@ -491,6 +491,19 @@ html[data-theme="day"] .social-link {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+.writing-essays h2 {
+  font-family: 'IM Fell English', serif;
+  color: #a35b4c; /* muted red */
+}
+
+.cozy-illustrations img {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 250px;
+  margin: auto;
+}
+
 
 
 
