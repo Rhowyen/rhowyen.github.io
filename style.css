@@ -66,8 +66,6 @@ a {
 }
 
 /* ---------- Status ---------- */
-/* ---- Stream Status Pill --- */
-
 .status {
   display: inline-block;
   margin-top: 0.5rem;
@@ -476,6 +474,21 @@ html[data-theme="day"] .social-link {
 
 .social-link.youtube:hover {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+.streams-videos h2, .streams-videos h3 {
+  font-family: 'IM Fell English', serif;
+  color: #5a3c2b; /* warm brown */
+}
+
+.stream-embeds {
+  display: grid;
+  gap: 1rem;
+}
+
+.streams-videos iframe {
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 
