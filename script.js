@@ -65,7 +65,10 @@ document.addEventListener("mousemove", e => {
 
   const sparkle = document.createElement("span");
   sparkle.classList.add("sparkle");
-  sparkle.textContent = "✨";
+  sparkle.textContent = "✦";
+  sparkle.style.color = "#86efac";
+  sparkle.style.textShadow = "0 0 6px #4ade80, 0 0 12px #22c55e";
+
 
   // offset so it doesn't sit under fairy cursor
   sparkle.style.left = (e.clientX + 14) + "px";
@@ -117,6 +120,7 @@ themeBtn.addEventListener("click", () => {
 
 
 /* ---------- End of Script ---------- */
+
 
 
 
