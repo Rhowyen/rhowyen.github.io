@@ -204,6 +204,15 @@ html[data-theme="day"] .status[data-live="true"] {
   will-change: transform, opacity;
 }
 
+body.dark .sparkle {
+  filter: drop-shadow(0 0 6px #caffd4);
+}
+
+body.light .sparkle {
+  filter: drop-shadow(0 0 6px #88ffcc);
+}
+
+
 /* ---------- Discord Widget ---------- */
 .discord-toggle {
   width: 100%;
@@ -471,6 +480,7 @@ html[data-theme="day"] .social-link {
 .social-link.youtube:hover {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
 }
+
 
 
 
