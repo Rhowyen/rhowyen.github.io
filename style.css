@@ -193,14 +193,11 @@ html[data-theme="day"] .status[data-live="true"] {
 
 /* ---------- Sparkles ---------- */
 .sparkle {
-  position: fixed;             
-  pointer-events: none;         
+  position: fixed;
+  pointer-events: none;
   font-size: 14px;
-  z-index: 9999;                
-  transform: translate(-50%, -50%);
-  transition: 
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  z-index: 99999;   /* higher than everything */
+  transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: transform, opacity;
 }
 
@@ -480,6 +477,7 @@ html[data-theme="day"] .social-link {
 .social-link.youtube:hover {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
 }
+
 
 
 
