@@ -38,26 +38,26 @@ fetch("https://decapi.me/twitch/uptime/rhowyen")
   .then(text => {
     const status = document.querySelector(".status");
     const banner = document.getElementById("offline-banner");
+    const twitchBtn = document.getElementById("twitchBtn");
+    const youtubeBtn = document.getElementById("youtubeBtn");
 
-    if (!text.toLowerCase().includes("offline")) {
+    const isLive = !text.toLowerCase().includes("offline");
+
+    if (isLive) {
       status.dataset.live = "true";
       status.textContent = "🔴 Live on Twitch";
       banner.style.display = "none";
+
+      [twitchBtn, youtubeBtn].forEach(btn => {
+        if (btn) {
+          btn.classList.add("live-glow", "live-float");
+        }
+      });
     }
   })
   .catch(() => {
     console.warn("Twitch status check failed");
   });
-if (isLive) {
-  const twitchBtn = document.getElementById("twitchBtn");
-  const youtubeBtn = document.getElementById("youtubeBtn");
-
-  [twitchBtn, youtubeBtn].forEach(btn => {
-    if (btn) {
-      btn.classList.add("live-glow", "live-float");
-    }
-  });
-}
 
 /* ---------- Sparkle Trail (Desktop Only) ---------- */
 document.addEventListener("mousemove", e => {
@@ -117,6 +117,7 @@ themeBtn.addEventListener("click", () => {
 
 
 /* ---------- End of Script ---------- */
+
 
 
 
