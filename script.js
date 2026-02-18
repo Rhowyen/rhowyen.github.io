@@ -67,21 +67,19 @@ document.addEventListener("mousemove", e => {
   sparkle.classList.add("sparkle");
   sparkle.textContent = "✨";
 
-  sparkle.style.left = e.clientX + "px";
-  sparkle.style.top = e.clientY + "px";
+  sparkle.style.left = (e.clientX + 8) + "px";
+  sparkle.style.top = (e.clientY + 8) + "px";
   sparkle.style.opacity = "1";
 
   document.body.appendChild(sparkle);
 
   requestAnimationFrame(() => {
     sparkle.style.opacity = "0";
-    sparkle.style.transform = "translate(-50%, -70%)";
+    sparkle.style.transform = "translate(-50%, -80%)";
   });
 
   setTimeout(() => sparkle.remove(), 600);
 });
-
-
 
 /* ---------- Discord Widget Toggle (Mobile) ---------- */
 const discordToggle = document.querySelector(".discord-toggle");
@@ -117,6 +115,7 @@ themeBtn.addEventListener("click", () => {
 
 
 /* ---------- End of Script ---------- */
+
 
 
 
