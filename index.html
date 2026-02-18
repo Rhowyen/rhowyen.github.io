@@ -20,7 +20,7 @@
 <body>
 
   <!-- making this shiz myspacey --> 
-  <div class="fixed inset-0 -z-10 bg-gradient-to-b from-black via-zinc-900 to-emerald-950"></div>
+  <div class="fixed inset-0 bg-gradient-to-b from-black via-zinc-900 to-emerald-950" style="z-index:-30;"></div>
 
   <!-- Foresty Audio -->
   <audio id="forest-audio" loop preload="none">
@@ -228,7 +228,7 @@
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>
-  <canvas id="particles" class="fixed inset-0 -z-10"></canvas>
+  <canvas id="particles" class="fixed inset-0" style="z-index:-20;"></canvas>
 
 <script>
 const canvas = document.getElementById("particles");
@@ -270,6 +270,7 @@ animateParticles();
   
 </body>
 </html>
+
 
 
 
