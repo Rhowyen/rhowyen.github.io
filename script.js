@@ -60,25 +60,36 @@ if (isLive) {
 }
 
 
-/* ---------- Sparkle Trail (Desktop Only) ---------- */
-document.addEventListener("mousemove", e => {
-  if (window.innerWidth < 768) return;
+// /* ---------- Sparkle Trail (Desktop Only) ---------- */
+// document.addEventListener("mousemove", e => {
+//   if (window.innerWidth < 768) return;
 
-  const sparkle = document.createElement("span");
-  sparkle.className = "sparkle";
-  sparkle.textContent = "✨";
-  sparkle.style.left = e.clientX + "px";
-  sparkle.style.top = e.clientY + "px";
+//   const sparkle = document.createElement("span");
+//   sparkle.className = "sparkle";
+//   sparkle.textContent = "✨";
+//   sparkle.style.left = e.clientX + "px";
+//   sparkle.style.top = e.clientY + "px";
 
-  document.body.appendChild(sparkle);
+//   document.body.appendChild(sparkle);
 
-  requestAnimationFrame(() => {
-    sparkle.style.opacity = "0";
-    sparkle.style.transform = "translateY(-10px)";
-  });
+//   requestAnimationFrame(() => {
+//     sparkle.style.opacity = "0";
+//     sparkle.style.transform = "translateY(-10px)";
+//   });
 
-  setTimeout(() => sparkle.remove(), 800);
-});
+//   setTimeout(() => sparkle.remove(), 800);
+// });
+.sparkle {
+  position: fixed;              /* MUST be fixed */
+  pointer-events: none;         /* So it doesn't block clicks */
+  font-size: 14px;
+  z-index: 9999;                /* Above everything */
+  transform: translate(-50%, -50%);
+  transition: 
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  will-change: transform, opacity;
+}
 
 /* ---------- Discord Widget Toggle (Mobile) ---------- */
 const discordToggle = document.querySelector(".discord-toggle");
@@ -114,4 +125,5 @@ themeBtn.addEventListener("click", () => {
 
 
 /* ---------- End of Script ---------- */
+
 
