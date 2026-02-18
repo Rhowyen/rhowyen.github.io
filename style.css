@@ -430,6 +430,51 @@ html[data-theme="day"] .social-link {
   color: #1f2a1f;
 }
 
+.social-link::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,0)
+  );
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.social-link:hover::before {
+  left: 120%;
+}
+
+.social-link.twitch {
+  box-shadow: 0 0 10px rgba(145, 70, 255, 0.4);
+  border-color: rgba(145, 70, 255, 0.5);
+}
+
+.social-link.twitch:hover {
+  box-shadow: 0 0 20px rgba(145, 70, 255, 0.8);
+}
+
+.status[data-live="true"] ~ .social-link.twitch {
+  box-shadow: 0 0 18px rgba(120, 255, 160, 0.8);
+  border-color: rgba(120, 255, 160, 0.9);
+}
+.social-link.youtube {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+.social-link.youtube:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+
+
+
 
 
 
