@@ -98,14 +98,12 @@ function updateDiscordTheme() {
 updateDiscordTheme();
 
 
-/* ---------- Blessing or Curse Functionality ---------- */
-const bcBtn = document.getElementById("blessing-curse-btn");
-
-bcBtn.addEventListener("click", () => {
-  // Randomly pick blessing or curse
-  const result = Math.random() < 0.5 ? "✨ Blessing! ✨" : "⚡ Curse! ⚡";
-  
-  // Show a popup
-  alert(result);
+/* ---------- Blessing or Curse Buttons ---------- */
+document.querySelectorAll(".blessing-curse-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const result = Math.random() < 0.5 ? "Blessing ✨" : "Curse ⚡";
+    alert(result);
+  });
 });
+
 
