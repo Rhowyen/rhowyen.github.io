@@ -1,119 +1,128 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg: #1a251a; /* deep forest green */
+  --box: #2c3b2c; /* mossy box color */
+  --accent: #3b5b3b; /* leafy accent */
+  --text: #e6efe6;
+  --twitch-glow: #9146ff;
+  --youtube-glow: #ff0000;
+  --ember-color: #ffb347;
+  --ivy-color: #4ade80;
+}
+
+[data-theme="day"] {
+  --bg: #e8f1e8;
+  --box: #ffffff;
+  --accent: #d2e6d2;
+  --text: #2b3b2b;
+  --twitch-glow: #8b5cf6;
+  --youtube-glow: #ef4444;
+  --ember-color: #fcd34d;
+  --ivy-color: #22c55e;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  cursor: url("assets/pics/cursor-sparkle.svg"), auto; 
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  cursor: url("assets/pics/cursor.svg"), auto; 
 }
 
-/* ---------- Background & Embers ---------- */
-.bg-layer {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg,#0f1a14,#14261c);
-  z-index: -30;
-}
-body::before {
-  content: "";
-  position: fixed; inset:0; z-index:0;
-  background:
-    radial-gradient(circle at 20% 40%, rgba(184,107,58,0.15), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(61,122,74,0.15), transparent 40%),
-    radial-gradient(circle at 50% 90%, rgba(200,169,92,0.08), transparent 60%);
-  animation: emberFloat 25s ease-in-out infinite;
-}
-@keyframes emberFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-60px); }
-  100% { transform: translateY(0); }
+h1, h2, h3 {
+  font-family: 'IM Fell English', serif;
 }
 
-/* ---------- Page Layout ---------- */
-.container {
-  max-width: 1200px;
-  margin: auto;
+/* ---------- Layout ---------- */
+.page {
   display: grid;
-  grid-template-columns: 280px 1fr 300px;
-  gap: 30px;
-  padding: 50px 20px;
-  position: relative;
-  z-index: 2;
-}
-@media (max-width:900px){
-  .container { grid-template-columns:1fr; }
+  gap: 1rem;
+  padding: 1rem;
 }
 
-/* ---------- Boxes ---------- */
+@media (min-width: 1024px) {
+  .page {
+    grid-template-columns: 260px 1fr 260px;
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 .box {
-  background: linear-gradient(145deg,#1b2d23,#14261c);
-  border: 1px solid rgba(200,169,92,0.3);
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(200,169,92,0.18);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-.box:hover { transform: translateY(-4px); }
-
-/* ---------- Ivy Corners ---------- */
-.box::before,
-.box::after {
-  content:"";
-  position:absolute;
-  width:80px;
-  height:80px;
-  background-size:contain;
-  background-repeat:no-repeat;
-  opacity:.35;
-  pointer-events:none;
-}
-.box::before {
-  top:-10px; left:-10px;
-  background-image: url("assets/ivy-corner.png");
-}
-.box::after {
-  bottom:-10px; right:-10px;
-  transform: scaleX(-1) scaleY(-1);
-  background-image: url("assets/ivy-corner.png");
+  background: var(--box);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
-/* ---------- Text ---------- */
-h1,h2,h3 {
-  font-family:'Cinzel', serif;
-  color:#e3c77a;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-}
-body {
-  color: #f3eee6;
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1.5;
+/* ---------- Profile ---------- */
+.profile img {
+  width: 10rem;
+  border-radius: 12px;
+  border: 2px solid var(--ivy-color);
 }
 
-/* ---------- Social Links Buttons ---------- */
+/* ---------- Status ---------- */
+.status {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status[data-live="true"] {
+  background: linear-gradient(135deg, var(--ivy-color), #2e7d32);
+  color: #eafff0;
+  border: 1px solid rgba(120,255,180,0.5);
+  box-shadow: 0 0 10px rgba(120,255,180,0.35), inset 0 0 0 1px rgba(255,255,255,0.1);
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 8px rgba(120,255,180,0.25); }
+  50% { box-shadow: 0 0 14px rgba(120,255,180,0.45); }
+}
+
+/* ---------- Links Buttons ---------- */
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.5rem;
+  gap: 0.6rem;
+  padding: 0.7rem 1.3rem;
   border-radius: 16px;
-  text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  text-decoration: none;
   transition: all 0.25s ease;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Base glassy button */
-html[data-theme="night"] .social-link {
-  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #f0f6ef;
+.social-link.twitch {
+  border: 2px solid var(--twitch-glow);
+  box-shadow: 0 0 10px var(--twitch-glow);
 }
 
-html[data-theme="day"] .social-link {
-  background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
-  border: 1px solid rgba(0,0,0,0.1);
-  color: #1f2a1f;
+.social-link.youtube {
+  border: 2px solid var(--youtube-glow);
+  box-shadow: 0 0 10px var(--youtube-glow);
 }
 
-/* Hover shimmer */
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--ivy-color);
+}
+
+/* Hover shine effect */
 .social-link::before {
   content: "";
   position: absolute;
@@ -125,30 +134,10 @@ html[data-theme="day"] .social-link {
   transform: rotate(25deg);
   transition: 0.6s;
 }
+
 .social-link:hover::before {
   left: 120%;
 }
-
-/* Twitch */
-.social-link.twitch {
-  box-shadow: 0 0 10px rgba(145, 70, 255, 0.4);
-  border-color: rgba(145, 70, 255, 0.5);
-  position: relative;
-}
-.social-link.twitch:hover {
-  box-shadow: 0 0 20px rgba(145, 70, 255, 0.8);
-}
-
-/* YouTube */
-.social-link.youtube {
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-  border-color: rgba(255, 0, 0, 0.5);
-  position: relative;
-}
-.social-link.youtube:hover {
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-}
-
 
 /* ---------- Embeds ---------- */
 .embed-container {
@@ -160,58 +149,112 @@ html[data-theme="day"] .social-link {
   border-radius: 14px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
+
 .embed-container iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
   border-radius: 14px;
+  border: 0;
 }
 
-/* ---------- Cozy Illustrations ---------- */
-.cozy-illustrations {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.cozy-illustrations img {
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 100%;
+/* ---------- Collapsible ---------- */
+.collapse-toggle {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-/* ---------- Discord Widget ---------- */
+/* ---------- Discord ---------- */
 .discord-widget {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 14px;
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(200,169,92,0.2);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
 }
+
 .discord-widget iframe {
   width: 100%;
-  height: 400px;
+  height: 500px;
   border: 0;
 }
-.ritual-chamber {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.4s ease;
-  opacity: 0;
-}
-.ritual-chamber.active {
-  max-height: 800px;
-  opacity: 1;
-}
 
-/* ---------- Ritual / Blessing & Curse ---------- */
-.ritual-trigger {
+.discord-toggle {
+  width: 100%;
+  color: var(--text);
+  background: var(--accent);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
   cursor: pointer;
-  text-align: center;
-  padding: 12px;
-  color: #e3c77a;
-}
-.ritual-trigger:hover {
-  text-shadow: 0 0 12px rgba(200,169,92,0.6);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: none;
 }
 
+@media (max-width: 768px) {
+  .discord-widget { display: none; }
+  .discord-widget.open { display: block; }
+  .discord-toggle { display: block; }
+}
+
+/* ---------- Sparkle Cursor Trail ---------- */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 14px;
+  z-index: 99999;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: transform, opacity;
+}
+
+html[data-theme="night"] .sparkle {
+  filter: drop-shadow(0 0 6px #caffd4);
+}
+
+html[data-theme="day"] .sparkle {
+  filter: drop-shadow(0 0 6px #22c55e);
+}
+
+/* ---------- Ivy & Ember Animated Background ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(var(--ember-color) 1px, transparent 1px),
+    radial-gradient(var(--ivy-color) 2px, transparent 2px);
+  background-size: 50px 50px, 100px 100px;
+  opacity: 0.15;
+  animation: emberMove 15s linear infinite, ivyDrift 40s linear infinite;
+}
+
+@keyframes emberMove {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 500px 500px, 0 0; }
+}
+
+@keyframes ivyDrift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 0, 200px 200px; }
+}
+
+/* ---------- Misc ---------- */
+button, .stream-btn {
+  cursor: pointer;
+}
+
+/* Smooth page fonts */
+body, input, textarea, button {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
