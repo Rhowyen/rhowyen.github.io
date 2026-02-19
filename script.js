@@ -69,8 +69,6 @@ document.addEventListener("mousemove", e => {
   sparkle.style.color = "#86efac";
   sparkle.style.textShadow = "0 0 6px #4ade80, 0 0 12px #22c55e";
 
-
-  // offset so it doesn't sit under fairy cursor
   sparkle.style.left = (e.clientX + 14) + "px";
   sparkle.style.top = (e.clientY + 14) + "px";
   sparkle.style.opacity = "1";
@@ -84,7 +82,6 @@ document.addEventListener("mousemove", e => {
 
   setTimeout(() => sparkle.remove(), 600);
 });
-
 
 /* ---------- Discord Widget Toggle (Mobile) ---------- */
 const discordToggle = document.querySelector(".discord-toggle");
@@ -102,28 +99,21 @@ discordToggle.addEventListener("click", () => {
 const discordIframe = document.getElementById("discord-iframe");
 
 function updateDiscordTheme() {
-  const theme = document.documentElement.dataset.theme === "day"
-    ? "light"
-    : "dark";
-
+  const theme = html.dataset.theme === "day" ? "light" : "dark";
   const baseSrc = "https://discord.com/widget?id=1219428215546712117";
   discordIframe.src = `${baseSrc}&theme=${theme}`;
 }
 
-
 updateDiscordTheme();
+themeBtn.addEventListener("click", () => setTimeout(updateDiscordTheme, 50));
 
-
-themeBtn.addEventListener("click", () => {
-  setTimeout(updateDiscordTheme, 50);
+/* ---------- Blessing or Curse Flip ---------- */
+document.querySelectorAll(".flip-coin").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const outcome = Math.random() < 0.5 ? "✨ Blessing ✨" : "💀 Curse 💀";
+    alert(`You received a: ${outcome}`);
+  });
 });
 
-
 /* ---------- End of Script ---------- */
-
-
-
-
-
-
 
