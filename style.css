@@ -248,6 +248,40 @@ body::after {
   100% { background-position: 0 0, 200px 200px; }
 }
 
+/* ---------- Blessing or Curse Button ---------- */
+.blessing-curse {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#blessing-curse-btn {
+  padding: 0.8rem 1.6rem;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6ef;
+  background: linear-gradient(145deg, #86efac, #22c55e);
+  border: 2px solid #4ade80;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),
+              0 0 10px rgba(134, 239, 172, 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#blessing-curse-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3),
+              0 0 14px rgba(134, 239, 172, 0.9);
+}
+
+#blessing-curse-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2),
+              0 0 8px rgba(134, 239, 172, 0.6);
+}
+
+
 /* ---------- Misc ---------- */
 button, .stream-btn {
   cursor: pointer;
@@ -258,5 +292,6 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
 
