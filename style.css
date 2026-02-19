@@ -308,6 +308,139 @@ body::after {
   border-radius: 14px;
 }
 
+/* ---------- The Forgotten Stall ---------- */
+.forgotten-stall {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(20,30,20,0.95),
+    rgba(30,40,30,0.9)
+  );
+  border: 1px solid rgba(120,255,180,0.15);
+  overflow: hidden;
+}
+
+/* faint fog overlay */
+.forgotten-stall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+/* section title */
+.forgotten-stall h2 {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* whisper text */
+.stall-whisper {
+  font-style: italic;
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+
+/* grid */
+.stall-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .stall-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* item */
+.stall-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.4s ease;
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.stall-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+/* haunting glow on hover */
+.stall-item:hover {
+  filter: brightness(1) contrast(1.1);
+  transform: translateY(-6px);
+}
+
+.stall-item:hover img {
+  transform: scale(1.05);
+}
+
+/* subtle magical aura */
+.stall-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(74,222,128,0.2), transparent 70%);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.stall-item:hover::after {
+  opacity: 1;
+}
+
+/* info overlay */
+.stall-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  text-align: left;
+}
+
+/* CTA */
+.stall-cta {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: var(--ivy-color);
+}
+
+/* portal button */
+.stall-portal {
+  margin-top: 2rem;
+}
+
+.stall-portal a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-family: 'IM Fell English', serif;
+  background: linear-gradient(145deg, #1f3d1f, #0f1f0f);
+  border: 1px solid rgba(74,222,128,0.4);
+  box-shadow: 0 0 12px rgba(74,222,128,0.3);
+  color: #eafff0;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.stall-portal a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(74,222,128,0.6);
+}
+
+
 
 /* ---------- Misc ---------- */
 button, .stream-btn {
@@ -319,6 +452,7 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
 
 
