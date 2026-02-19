@@ -21,14 +21,14 @@ themeBtn.addEventListener("click", () => {
   const isNight = html.dataset.theme === "night";
   html.dataset.theme = isNight ? "day" : "night";
   themeBtn.textContent = isNight ? "Light Mode" : "Dark Mode";
+  setTimeout(updateDiscordTheme, 50);
 });
 
 /* ---------- Collapsible About ---------- */
 document.querySelectorAll(".collapse-toggle").forEach(btn => {
   btn.addEventListener("click", () => {
     const content = btn.nextElementSibling;
-    content.style.display =
-      content.style.display === "block" ? "none" : "block";
+    content.style.display = content.style.display === "block" ? "none" : "block";
   });
 });
 
@@ -49,17 +49,12 @@ fetch("https://decapi.me/twitch/uptime/rhowyen")
       banner.style.display = "none";
 
       [twitchBtn, youtubeBtn].forEach(btn => {
-        if (btn) {
-          btn.classList.add("live-glow", "live-float");
-        }
+        if (btn) btn.classList.add("live-glow", "live-float");
       });
     }
-  })
-  .catch(() => {
-    console.warn("Twitch status check failed");
-  });
+  }).catch(() => console.warn("Twitch status check failed"));
 
-/* ---------- Sparkle Trail (Desktop Only) ---------- */
+/* ---------- Sparkle Trail ---------- */
 document.addEventListener("mousemove", e => {
   if (window.innerWidth < 768) return;
 
@@ -68,7 +63,6 @@ document.addEventListener("mousemove", e => {
   sparkle.textContent = "✦";
   sparkle.style.color = "#86efac";
   sparkle.style.textShadow = "0 0 6px #4ade80, 0 0 12px #22c55e";
-
   sparkle.style.left = (e.clientX + 14) + "px";
   sparkle.style.top = (e.clientY + 14) + "px";
   sparkle.style.opacity = "1";
@@ -89,13 +83,10 @@ const discordWidget = document.querySelector(".discord-widget");
 
 discordToggle.addEventListener("click", () => {
   discordWidget.classList.toggle("open");
-
-  discordToggle.textContent = discordWidget.classList.contains("open")
-    ? " Hide Community"
-    : " Join the Community";
+  discordToggle.textContent = discordWidget.classList.contains("open") ? " Hide Community" : " Join the Community";
 });
 
-/* ---------- Sync Discord Theme With Site Theme ---------- */
+/* ---------- Sync Discord Theme ---------- */
 const discordIframe = document.getElementById("discord-iframe");
 
 function updateDiscordTheme() {
@@ -105,15 +96,11 @@ function updateDiscordTheme() {
 }
 
 updateDiscordTheme();
-themeBtn.addEventListener("click", () => setTimeout(updateDiscordTheme, 50));
 
-/* ---------- Blessing or Curse Flip ---------- */
+/* ---------- Blessing / Curse Flip ---------- */
 document.querySelectorAll(".flip-coin").forEach(btn => {
   btn.addEventListener("click", () => {
-    const outcome = Math.random() < 0.5 ? "✨ Blessing ✨" : "💀 Curse 💀";
-    alert(`You received a: ${outcome}`);
+    const result = Math.random() < 0.5 ? "✨ Blessing! ✨" : "⚡ Curse! ⚡";
+    alert(result);
   });
 });
-
-/* ---------- End of Script ---------- */
-
