@@ -440,6 +440,25 @@ body::after {
   box-shadow: 0 0 20px rgba(74,222,128,0.6);
 }
 
+/* ---------- Forest Silhouette ---------- */
+.forest-backdrop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 300px;
+  background: url("assets/pics/forest-silhouette.png") repeat-x bottom;
+  background-size: contain;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -2;
+  animation: forestDrift 120s linear infinite;
+}
+
+@keyframes forestDrift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 
 /* ---------- Misc ---------- */
@@ -452,6 +471,7 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
 
 
