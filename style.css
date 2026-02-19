@@ -32,7 +32,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  cursor: url("assets/pics/cursor.png"), auto; 
+  cursor: url("assets/pics/cursor.png"), auto;
 }
 
 h1, h2, h3 {
@@ -258,4 +258,5 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
