@@ -86,21 +86,69 @@ body {
   line-height: 1.5;
 }
 
-/* ---------- Buttons ---------- */
-button, .button {
-  background: linear-gradient(145deg,#2f5d3a,#3d7a4a);
-  color: #f3eee6;
-  border: 1px solid rgba(200,169,92,0.35);
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
+/* ---------- Social Links Buttons ---------- */
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.25s ease;
-  font-family:'Cinzel', serif;
+  text-align: center;
 }
-button:hover, .button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(200,169,92,0.4);
+
+/* Base glassy button */
+html[data-theme="night"] .social-link {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #f0f6ef;
 }
+
+html[data-theme="day"] .social-link {
+  background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #1f2a1f;
+}
+
+/* Hover shimmer */
+.social-link::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+.social-link:hover::before {
+  left: 120%;
+}
+
+/* Twitch */
+.social-link.twitch {
+  box-shadow: 0 0 10px rgba(145, 70, 255, 0.4);
+  border-color: rgba(145, 70, 255, 0.5);
+  position: relative;
+}
+.social-link.twitch:hover {
+  box-shadow: 0 0 20px rgba(145, 70, 255, 0.8);
+}
+
+/* YouTube */
+.social-link.youtube {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  border-color: rgba(255, 0, 0, 0.5);
+  position: relative;
+}
+.social-link.youtube:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
 
 /* ---------- Embeds ---------- */
 .embed-container {
@@ -166,3 +214,4 @@ button:hover, .button:hover {
 .ritual-trigger:hover {
   text-shadow: 0 0 12px rgba(200,169,92,0.6);
 }
+
