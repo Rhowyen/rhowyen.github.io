@@ -254,7 +254,7 @@ body::after {
   margin: 1rem 0;
 }
 
-#blessing-curse-btn {
+.blessing-curse-btn {
   padding: 0.8rem 1.6rem;
   font-family: 'IM Fell English', serif;
   font-size: 1.1rem;
@@ -269,13 +269,13 @@ body::after {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#blessing-curse-btn:hover {
+.blessing-curse-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0,0,0,0.3),
               0 0 14px rgba(134, 239, 172, 0.9);
 }
 
-#blessing-curse-btn:active {
+.blessing-curse-btn:active {
   transform: scale(0.95);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2),
               0 0 8px rgba(134, 239, 172, 0.6);
@@ -471,6 +471,7 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
 
 
