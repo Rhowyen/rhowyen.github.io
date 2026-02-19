@@ -97,10 +97,15 @@ function updateDiscordTheme() {
 
 updateDiscordTheme();
 
-/* ---------- Blessing / Curse Flip ---------- */
-document.querySelectorAll(".flip-coin").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const result = Math.random() < 0.5 ? "✨ Blessing! ✨" : "⚡ Curse! ⚡";
-    alert(result);
-  });
+
+/* ---------- Blessing or Curse Functionality ---------- */
+const bcBtn = document.getElementById("blessing-curse-btn");
+
+bcBtn.addEventListener("click", () => {
+  // Randomly pick blessing or curse
+  const result = Math.random() < 0.5 ? "✨ Blessing! ✨" : "⚡ Curse! ⚡";
+  
+  // Show a popup
+  alert(result);
 });
+
