@@ -13,21 +13,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- Tailwind & Custom CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
-  <!-- Background -->
+  <!-- ---------- Background Gradient ---------- -->
   <div class="fixed inset-0 bg-gradient-to-b from-black via-zinc-900 to-emerald-950" style="z-index:-30;"></div>
 
-  <!-- Forest Audio -->
+  <!-- ---------- Ambient Audio ---------- -->
   <audio id="forest-audio" loop preload="none">
     <source src="assets/audio/forest.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Floating Controls -->
+  <!-- ---------- Floating Controls ---------- -->
   <div class="floating-controls">
     <button id="theme-toggle">Dark Mode</button>
     <button id="audio-toggle">ambience: off</button>
@@ -35,7 +35,7 @@
 
   <div class="page flex flex-col lg:flex-row gap-6 p-4">
 
-    <!-- Left Column: Profile -->
+    <!-- ---------- Profile Column ---------- -->
     <aside class="profile box flex flex-col items-center gap-6 w-full lg:w-64 lg:flex-shrink-0">
       <img src="assets/pics/avatar.jpg" alt="Rhowyen Avatar" class="w-32 h-32 rounded-xl object-cover border border-white/10" />
       <div class="text-center">
@@ -45,26 +45,22 @@
         <p class="mt-2 text-sm">Find me live on Twitch and YouTube</p>
       </div>
 
-       <!-- Streams & Videos -->
-      <section class="streams-videos box">
+      <!--  streams & videos  -->
+      <section class="streams-videos box w-full">
         <h2>~ Streams & Videos ~</h2>
         <div class="stream-embeds grid lg:grid-cols-1 gap-4">
-    <!-- Twitch Embed -->
-    <div class="embed-container">
-      <iframe 
-        src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io" 
-        height="300" 
-        width="100%" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
-    </div>
+          <!-- Twitch Embed -->
+          <div class="embed-container">
+            <iframe 
+              src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io" 
+              frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
           <!-- YouTube Uploads Playlist Embed -->
-    <div class="embed-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=RN2gbd3OmvLr1xsW&amp;list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-  </div>
-        
+          <div class="embed-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
         <div class="upcoming-streams mt-4">
           <h3>Upcoming Streams</h3>
           <ul>
@@ -73,16 +69,17 @@
             <li>Sunday 9 PM EST – Weekly Wind Down</li>
           </ul>
         </div>
+        <button class="flip-coin mt-2">🔮 Flip Blessing or Curse</button>
       </section>
     </aside>
 
-    <!-- Main Column -->
+    <!-- ---------- Main Column ---------- -->
     <main class="content box flex-1 flex flex-col gap-6">
 
-      <!-- Offline Banner -->
+      <!-- offline banner  -->
       <img id="offline-banner" src="assets/pics/offlinebanner.jpg" alt="Offline banner">
 
-      <!-- About Section -->
+      <!--  about section  -->
       <section class="about box">
         <button class="collapse-toggle">About Me</button>
         <div class="collapse-content">
@@ -92,12 +89,13 @@
             Carefully balancing clownish antics with relaxing vibes and adventuring through beautiful virtual worlds.
           </p>
         </div>
+        <button class="flip-coin mt-2">🔮 Flip Blessing or Curse</button>
       </section>
 
-      <!-- Links Section -->
+      <!--  links section  -->
       <section class="links-section box">
         <h2>~ My Links ~</h2>
-        <div class="links-grid grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+        <div class="links-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <a id="twitchBtn" class="social-link twitch" href="https://www.twitch.tv/rhowyen" target="_blank">Twitch</a>
           <a id="youtubeBtn" class="social-link youtube" href="https://www.youtube.com/@rhowyen" target="_blank">YouTube</a>
           <a class="social-link" href="https://www.throne.com/rhowyen" target="_blank">Throne</a>
@@ -105,76 +103,57 @@
           <a class="social-link" href="https://www.instagram.com/rhowyen/" target="_blank">Instagram</a>
           <a class="social-link" href="https://www.threads.net/@rhowyen" target="_blank">Threads</a>
           <a class="social-link" href="https://share.upscrolled.com/en/user/baefd870-4e3b-4940-98af-7e321fe9ab9a/" target="_blank">Upscrolled</a>
-          <a class="social-link href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
+          <a class="social-link" href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
           <a class="social-link" href="https://rhowyen-shop.fourthwall.com" target="_blank">Merch</a>
           <a class="social-link" href="https://rhowyen.substack.com/" target="_blank">Substack</a>
           <a class="social-link" href="https://twitter.com/rhowyen_" target="_blank">Twitter</a>
         </div>
+        <button class="flip-coin mt-2">🔮 Flip Blessing or Curse</button>
       </section>
 
-     <!-- Blessing/Curse Button -->
-  <button class="flip-coin mt-4">🔮 Flip for Blessing or Curse</button>
-</section>
-
-      <!-- Writing & Essays -->
+      <!--  writing & essays -->
       <section class="writing-essays box">
         <h2>~ Writing & Essays ~</h2>
         <div class="substack-previews mb-4">
           <iframe src="https://rhowyen.substack.com/embed" width="100%" height="200" frameborder="0"></iframe>
         </div>
-        <!-- <div class="cozy-illustrations grid gap-4 mb-4">
+        <div class="cozy-illustrations grid gap-4 mb-4">
           <img src="assets/pics/doodle1.jpg" alt="Cozy doodle 1">
           <img src="assets/pics/doodle2.jpg" alt="Cozy doodle 2">
-        </div> -->
-        <!-- <div class="recent-social">
+        </div>
+        <div class="recent-social">
           <iframe src="https://twitframe.com/show?url=https://twitter.com/rhowyen_/status/1700000000000000000" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
-        </div> -->
+        </div>
+        <button class="flip-coin mt-2">🔮 Flip Blessing or Curse</button>
       </section>
 
     </main>
 
-    <!-- Right Column: Community / Discord / Fan Art -->
+    <!-- ---------- Community / Discord / Fan Art ---------- -->
     <aside class="community box flex flex-col gap-6 w-full lg:w-64 lg:flex-shrink-0">
       <h2>~ Community Corner ~</h2>
 
-     <!-- Discord Widget -->
-<button class="discord-toggle">
-  Join the Community
-</button>
-
-<div class="discord-widget">
-  <iframe
-    id="discord-iframe"
-    src="https://discord.com/widget?id=1219428215546712117&theme=dark"
-    allowtransparency="true"
-    frameborder="0"
-    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-  </iframe>
-</div>
-
+      <!-- Discord Widget -->
+      <div class="discord-widget">
+        <iframe id="discord-iframe" src="https://discord.com/widget?id=1219428215546712117&theme=dark" class="w-full h-96 rounded-xl border border-white/10 shadow-inner" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+      <button class="discord-toggle mt-2">Join the Community</button>
 
       <!-- Fan Art Gallery -->
       <div class="fan-art grid gap-2 mt-4">
         <h2>~ Fan Art Gallery ~</h2>
         <img src="assets/pics/fanart1.jpg" alt="Fan Art 1" class="rounded-lg shadow-md">
         <img src="assets/pics/fanart2.jpg" alt="Fan Art 2" class="rounded-lg shadow-md">
+        <button class="flip-coin mt-2">🔮 Flip Blessing or Curse</button>
       </div>
-
-      <!-- Poll Placeholder -->
-      <!-- <div class="community-poll mt-4">
-        <p>Poll: Which cozy game should we play next?</p>
-        <ul>
-          <li>Stardew Valley</li>
-          <li>Spiritfarer</li>
-          <li>Zelda: BOTW</li>
-        </ul>
-      </div> -->
     </aside>
 
   </div>
 
+  <!-- ---------- Sparkles Canvas ---------- -->
   <canvas id="particles" class="fixed inset-0" style="z-index:-20;"></canvas>
 
+  <!-- ---------- Scripts ---------- -->
   <script src="script.js"></script>
   <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
   <script>
@@ -185,62 +164,5 @@
       'floating-chat.donateButton.text-color': '#fff'
     });
   </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
