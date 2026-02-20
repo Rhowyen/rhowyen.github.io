@@ -19,6 +19,7 @@ html[data-theme="day"] {
 }
 
 body {
+  cursor: none;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
@@ -58,6 +59,8 @@ body {
   opacity: 0.4;
   pointer-events: none;
 }
+
+/* ambient lights  */
 .ambient-lights {
   position: fixed;
   inset: 0;
@@ -90,7 +93,50 @@ body {
     transform: translate(-200px, -200px);
   }
 }
+/* navi cursor with sparkles */
+.fairy-cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #aaffee 60%, transparent 70%);
+  box-shadow: 0 0 12px #aaffee, 0 0 20px #66ffff;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #aaffee;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: sparkleFade 0.6s ease-out forwards;
+  z-index: 9998;
+}
 
+@keyframes sparkleFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.2);
+  }
+}
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+
+  .fairy-cursor {
+    display: none;
+  }
+}
 
 /* floating controls */
 
@@ -257,6 +303,7 @@ body {
     display: block;
   }
 }
+
 
 
 
