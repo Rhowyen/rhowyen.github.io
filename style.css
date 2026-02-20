@@ -183,6 +183,36 @@ body {
   border: none;
   cursor: pointer;
 }
+/* collapse system */
+
+.collapse-toggle {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  padding: 8px 0;
+}
+
+.collapse-content {
+  margin-top: 12px;
+}
+
+/* mobile auto collapse */
+
+@media (max-width: 1024px) {
+  .streams-content {
+    display: none;
+  }
+
+  .streams-content.active {
+    display: block;
+  }
+}
+
+
 
 
 
