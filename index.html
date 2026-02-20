@@ -48,18 +48,21 @@
       <!--  streams & videos  -->
       <section class="streams-videos box w-full">
         <h2>~ Streams & Videos ~</h2>
-        <div class="stream-embeds grid lg:grid-cols-1 gap-4">
+        <div class="stream-embeds flex flex-col gap-4">
           <!-- Twitch Embed -->
-          <div class="embed-container">
-            <iframe 
-              src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io" 
-              frameborder="0" allowfullscreen>
-            </iframe>
-          </div>
-          <!-- YouTube Uploads Playlist Embed -->
-          <div class="embed-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+          <div class="embed-wrapper">
+  <iframe
+    src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="embed-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/videoseries?list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY"
+    allowfullscreen>
+  </iframe>
+</div>
         </div>
         <div class="upcoming-streams mt-4">
           <h3>Upcoming Streams</h3>
@@ -217,6 +220,7 @@
 
 </body>
 </html>
+
 
 
 
