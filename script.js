@@ -101,9 +101,10 @@ updateDiscordTheme();
 /* ---------- Blessing or Curse Buttons ---------- */
 document.querySelectorAll(".blessing-curse-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    const result = Math.random() < 0.5 ? "Blessing ✨" : "Curse ⚡";
+    const result = Math.random() < 0.5 ? "The heavens shine upone you, my darling ✨" : "oh damn cursed... better luck next time ⚡";
     alert(result);
   });
 });
+
 
 
