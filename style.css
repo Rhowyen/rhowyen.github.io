@@ -19,10 +19,23 @@ html[data-theme="day"] {
 }
 
 body {
-  background: var(--bg-main);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
+  background: radial-gradient(circle at 20% 30%, rgba(120,255,200,0.15), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(255,120,200,0.15), transparent 40%),
+              #0b0f14;
+  background-attachment: fixed;
+  animation: glowShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowShift {
+  0% {
+    background-position: 20% 30%, 80% 70%;
+  }
+  100% {
+    background-position: 25% 35%, 75% 65%;
+  }
 }
 
 /* box style */
@@ -211,6 +224,7 @@ body {
     display: block;
   }
 }
+
 
 
 
