@@ -41,9 +41,8 @@ body {
   position: fixed;
   inset: 0;
   background: url("assets/pics/forest-silhouette.png") center center / cover no-repeat;
-  z-index: -40;
+  z-index: -10;
   opacity: 0.4;
-  filter: brightness(0.6) blur(2px);
   pointer-events: none;
 }
 
@@ -184,6 +183,7 @@ body {
   border: none;
   cursor: pointer;
 }
+
 
 
 
