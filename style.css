@@ -35,6 +35,18 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
+/* forest background */
+
+.forest-backdrop {
+  position: fixed;
+  inset: 0;
+  background: url("assets/pics/forest-silhouette.png") center center / cover no-repeat;
+  z-index: -40;
+  opacity: 0.4;
+  filter: brightness(0.6) blur(2px);
+  pointer-events: none;
+}
+
 /* floating controls */
 
 .floating-controls {
@@ -154,3 +166,4 @@ body {
   border: none;
   cursor: pointer;
 }
+
