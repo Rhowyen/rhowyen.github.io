@@ -58,6 +58,39 @@ body {
   opacity: 0.4;
   pointer-events: none;
 }
+.ambient-lights {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ambient-lights::before,
+.ambient-lights::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: floatLights 60s linear infinite;
+}
+
+.ambient-lights::after {
+  animation-direction: reverse;
+  opacity: 0.4;
+}
+
+@keyframes floatLights {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-200px, -200px);
+  }
+}
+
 
 /* floating controls */
 
@@ -224,6 +257,7 @@ body {
     display: block;
   }
 }
+
 
 
 
