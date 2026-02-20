@@ -41,27 +41,29 @@ document.querySelectorAll(".collapse-toggle").forEach(btn => {
   });
 });
 
-/* blessing/curse modal */
-const bcBtns = document.querySelectorAll(".blessing-curse-btn");
-const bcModal = document.createElement("div");
-bcModal.id = "bc-modal";
-bcModal.innerHTML = `
-  <div class="modal-content">
-    <p id="bc-result"></p>
-    <button id="bc-close">Close</button>
-  </div>`;
-document.body.appendChild(bcModal);
-
-const bcResult = document.getElementById("bc-result");
-document.getElementById("bc-close").addEventListener("click", () => {
-  bcModal.classList.remove("active");
-});
-
-bcBtns.forEach(btn => {
+/* ---------- Blessing or Curse Buttons ---------- */
+document.querySelectorAll(".blessing-curse-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    const outcome = Math.random() < 0.5 ? "Blessing 🌿" : "Curse 🔥";
-    bcResult.textContent = outcome;
-    bcModal.classList.add("active");
+    const result = Math.random() < 0.5 ? "The heavens shine upon you, my darling ✨" : "oh damn cursed... better luck next time ⚡";
+    alert(result);
+    const blessings = [
+      "A gentle fortune finds you.",
+      "The forest protects you.",
+      "Your creativity burns bright."
+    ];
+
+    const curses = [
+      "The lantern flickers ominously.",
+      "A whisper follows you home.",
+      "Something watches from the trees."
+    ];
+
+    const result = Math.random() < 0.5
+      ? blessings[Math.floor(Math.random() * blessings.length)]
+      : curses[Math.floor(Math.random() * curses.length)];
+
+    document.getElementById("bc-result").textContent = result;
+    modal.classList.add("active");
   });
 });
 
@@ -82,3 +84,4 @@ document.addEventListener("mousemove", e => {
   document.body.appendChild(sparkle);
   setTimeout(() => sparkle.remove(), 600);
 });
+
