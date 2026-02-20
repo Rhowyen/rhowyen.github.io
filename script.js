@@ -67,3 +67,14 @@ document.addEventListener("click", e => {
     modal.classList.remove("active");
   }
 });
+
+/* streams collapse */
+
+const streamsToggle = document.querySelector(".streams-toggle");
+const streamsContent = document.querySelector(".streams-content");
+
+streamsToggle.addEventListener("click", () => {
+  streamsContent.classList.toggle("active");
+});
+
+
