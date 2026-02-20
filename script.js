@@ -77,4 +77,29 @@ streamsToggle.addEventListener("click", () => {
   streamsContent.classList.toggle("active");
 });
 
+/* fairy cursor movement */
+
+const fairy = document.querySelector(".fairy-cursor");
+
+document.addEventListener("mousemove", (e) => {
+  fairy.style.left = e.clientX + "px";
+  fairy.style.top = e.clientY + "px";
+
+  createSparkle(e.clientX, e.clientY);
+});
+
+function createSparkle(x, y) {
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.style.left = x + "px";
+  sparkle.style.top = y + "px";
+
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, 600);
+}
+
+
 
