@@ -61,6 +61,33 @@ h1, h2, h3 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
+/* ---------- Floating Controls ---------- */
+.floating-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 9999;
+}
+
+.floating-controls button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-family: 'IM Fell English', serif;
+  background: linear-gradient(145deg, #1a2a1a, #0f1a0f);
+  border: 1px solid rgba(74,222,128,0.4);
+  color: #eafff0;
+  box-shadow: 0 0 10px rgba(74,222,128,0.3);
+  transition: 0.3s ease;
+}
+
+.floating-controls button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(74,222,128,0.6);
+}
+
 /* ---------- Profile ---------- */
 .profile img {
   width: 10rem;
@@ -471,6 +498,7 @@ body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   color: var(--text);
 }
+
 
 
 
