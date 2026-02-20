@@ -99,7 +99,7 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle, #fff 0%, #aaffee 60%, transparent 70%);
+  background: url("assets/pics/cursor.png") center center no-repeat;
   box-shadow: 0 0 12px #aaffee, 0 0 20px #66ffff;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -303,6 +303,7 @@ body {
     display: block;
   }
 }
+
 
 
 
