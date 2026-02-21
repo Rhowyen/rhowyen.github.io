@@ -70,7 +70,7 @@ body::after {
   position: fixed;
   width: 36px;
   height: 36px;
-  background: url("assets/pics/fairy.png") center center no-repeat;
+  background: url("assets/pics/cursor.png") center center no-repeat;
   background-size: contain;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -287,6 +287,7 @@ body::after {
   max-width: 400px;
   text-align: center;
 }
+
 
 
 
