@@ -222,20 +222,24 @@ body::after {
   right: 25px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   z-index: 9999;
 }
 
 .floating-btn {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 1px solid var(--glass-border);
   background: var(--bg-soft);
   color: var(--text-main);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: 0.3s ease;
+  backdrop-filter: blur(6px);
 }
 
 .floating-btn:hover {
@@ -271,3 +275,4 @@ body::after {
     height: 44px;
   }
 }
+
