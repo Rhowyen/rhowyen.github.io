@@ -70,6 +70,23 @@ body::after {
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   transition: background 0.4s ease;
 }
+/* blessing button */
+
+.blessing-curse-btn {
+  background: linear-gradient(145deg, #1c2b21, #122018);
+  border: 1px solid var(--glass-border);
+  padding: 12px 22px;
+  border-radius: 999px;
+  color: var(--text-main);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.blessing-curse-btn:hover {
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
 
 /* Custom Cursor */
 
@@ -275,4 +292,5 @@ body::after {
     height: 44px;
   }
 }
+
 
