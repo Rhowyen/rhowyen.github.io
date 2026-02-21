@@ -19,36 +19,45 @@ document.addEventListener("mousemove", e => {
 });
 
 /* blessing or curse */
-
 const blessingBtn = document.getElementById("blessing-btn");
 const bcModal = document.getElementById("bc-modal");
 const bcResult = document.getElementById("bc-result");
 const bcClose = document.getElementById("bc-close");
 
 const blessings = [
-  "You will find a hidden opportunity soon.",
-  "Your next stream will attract someone important.",
-  "A creative idea will bloom unexpectedly."
+  "You gain radiant forest luck. Your next quest succeeds.",
+  "A hidden ally reveals themselves soon.",
+  "Your energy is restored by unseen forces."
 ];
 
 const curses = [
-  "Your tea will go cold before you sip it.",
-  "A minor inconvenience will test your patience.",
-  "You will forget why you entered a room."
+  "A minor inconvenience stalks your week.",
+  "You will misplace something small but important.",
+  "A shadow lingers in your next decision.",
+  "Sucks to suck yo"
 ];
 
 blessingBtn.addEventListener("click", () => {
   const isBlessing = Math.random() < 0.5;
+
   const result = isBlessing
     ? blessings[Math.floor(Math.random() * blessings.length)]
     : curses[Math.floor(Math.random() * curses.length)];
 
   bcResult.textContent = result;
+
   bcModal.classList.add("active");
 });
 
 bcClose.addEventListener("click", () => {
   bcModal.classList.remove("active");
+});
+
+/* click outside modal to close */
+bcModal.addEventListener("click", (e) => {
+  if (e.target === bcModal) {
+    bcModal.classList.remove("active");
+  }
 });
 
  /* theme toggle */
@@ -82,5 +91,6 @@ audioBtn.addEventListener("click", () => {
     audioBtn.textContent = "🔊";
   }
 });
+
 
 
