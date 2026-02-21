@@ -25,16 +25,14 @@
   <!-- -----------Ambient lighting thingies  --- -->
   <div class="ambient-lights"></div>
 
-  <!-- ---------- Ambient Audio ---------- -->
-  <audio id="forest-audio" loop preload="none">
-    <source src="assets/audio/forest.mp3" type="audio/mpeg">
-  </audio>
+  <!-- floating controls -->
+<div class="floating-controls">
+  <button id="theme-toggle" class="floating-btn" aria-label="Toggle theme">🌙</button>
+  <button id="audio-toggle" class="floating-btn" aria-label="Toggle ambience">🔊</button>
+</div>
 
-  <!-- ---------- Floating Controls ---------- -->
-  <div class="floating-controls">
-    <button id="theme-toggle">Dark Mode</button>
-    <button id="audio-toggle">ambience: off</button>
-  </div>
+  <!-- --------- Ambient Audio ------------  -->
+<audio id="forest-audio" src="assets/audio/forest.mp3" loop></audio>
 
   <div class="page flex flex-col lg:flex-row gap-6 p-4">
 
@@ -233,6 +231,7 @@
 </audio>
 </body>
 </html>
+
 
 
 
