@@ -77,14 +77,7 @@
             <li>Sunday 9 PM EST – Weekly Wind Down</li>
           </ul>
         </div>
-       
-<div id="bc-modal">
-  <div class="modal-content">
-    <p id="bc-result"></p>
-    <button id="bc-close">Close</button>
-  </div>
-</div>
-  </div>
+
       </section>
     </aside>
 
@@ -104,11 +97,15 @@
             Carefully balancing clownish antics with relaxing vibes and adventuring through beautiful virtual worlds.
           </p>
         </div>
+      </section>
+      
       <section class="blessing-curse box">
   <button id="blessing-btn" class="blessing-curse-btn">
     ✦ Blessing or Curse ✦
   </button>
 </section>
+        
+      
 
 <div id="bc-modal">
   <div class="modal-content">
@@ -198,7 +195,14 @@
     </aside>
 
   </div>
-
+  
+<!-- Blessing / Curse Modal -->
+<div id="bc-modal">
+  <div class="modal-content">
+    <p id="bc-result"></p>
+    <button id="bc-close">Close</button>
+  </div>
+</div>
   <!-- ---------- Sparkles Canvas ---------- -->
   <canvas id="particles" class="fixed inset-0" style="z-index:-20;"></canvas>
 
@@ -219,24 +223,9 @@
   
   <!-- ------ navi cursor --------  -->
 <div class="fairy-cursor"></div>
-  
-  <!-- Floating Controls -->
-<div class="floating-controls">
-  <button id="themeToggle" class="floating-btn">
-    Theme
-  </button>
-
-  <button id="audioToggle" class="floating-btn">
-    Audio
-  </button>
-</div>
-
-<!-- Ambient Audio -->
-<audio id="ambientAudio" loop>
-  <source src="assets/audio/forest.mp3" type="audio/mpeg">
-</audio>
 </body>
 </html>
+
 
 
 
