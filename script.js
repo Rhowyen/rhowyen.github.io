@@ -60,42 +60,35 @@ document.addEventListener("click", e => {
   }
 });
 
- /* Theme Toggle */
-document.addEventListener("click", e => {
-  if (e.target.id === "bc-close" || e.target.id === "bc-modal") {
-    modal.classList.remove("active");
-  }
+ /* theme toggle */
+
+const themeBtn = document.getElementById("theme-toggle");
+const html = document.documentElement;
+
+themeBtn.addEventListener("click", () => {
+  const current = html.dataset.theme;
+  const newTheme = current === "day" ? "night" : "day";
+
+  html.dataset.theme = newTheme;
+
+  themeBtn.textContent = newTheme === "day" ? "☀️" : "🌙";
 });
 
-const themeToggle = document.getElementById("themeToggle");
-const body = document.body;
 
-themeToggle.addEventListener("click", () => {
-  body.classList.toggle("light-mode");
+/* ambient audio */
 
-  if (body.classList.contains("light-mode")) {
-    themeToggle.textContent = "Light Theme";
+const audio = document.getElementById("forest-audio");
+const audioBtn = document.getElementById("audio-toggle");
+
+audio.volume = 0.3;
+
+audioBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    audioBtn.textContent = "🔇";
   } else {
-    themeToggle.textContent = "Dark Theme";
-  }
-});
-
-/* Ambient audio */
-
-const audioToggle = document.getElementById("audioToggle");
-const ambientAudio = document.getElementById("ambientAudio");
-
-let audioPlaying = false;
-
-audioToggle.addEventListener("click", () => {
-  if (!audioPlaying) {
-    ambientAudio.play();
-    audioToggle.textContent = "🔇";
-    audioPlaying = true;
-  } else {
-    ambientAudio.pause();
-    audioToggle.textContent = "🎵";
-    audioPlaying = false;
+    audio.pause();
+    audioBtn.textContent = "🔊";
   }
 });
 
