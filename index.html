@@ -24,7 +24,7 @@
 <div class="forest-backdrop"></div>
 
 <!-- particles -->
-<canvas id="particles" class="fixed inset-0 pointer-events-none" style="z-index:-2;"></canvas>
+<canvas id="fireflies" class="fixed inset-0 pointer-events-none" style="z-index:-2;"></canvas>
 
 <!-- ambient lights -->
 <div class="ambient-lights"></div>
@@ -92,34 +92,30 @@
     </section>
 
     <section class="blessing-curse box">
-      <button id="blessing-btn" class="blessing-curse-btn">
-        ✦ Blessing or Curse ✦
-      </button>
+      <button id="blessing-btn" class="blessing-curse-btn">✦ Blessing or Curse ✦</button>
     </section>
 
-     <section class="links-section box">
-        <h2>~ My Links ~</h2>
-        <div class="links-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <a id="twitchBtn" class="social-link twitch" href="https://www.twitch.tv/rhowyen" target="_blank">Twitch</a>
-          <a id="youtubeBtn" class="social-link youtube" href="https://www.youtube.com/@rhowyen" target="_blank">YouTube</a>
-          <a class="social-link" href="https://www.throne.com/rhowyen" target="_blank">Throne</a>
-          <a class="social-link" href="https://store.steampowered.com/wishlist/id/rhowyen/" target="_blank">Steam Wish List</a>
-          <a class="social-link" href="https://www.instagram.com/rhowyen/" target="_blank">Instagram</a>
-          <a class="social-link" href="https://www.threads.net/@rhowyen" target="_blank">Threads</a>
-          <a class="social-link" href="https://share.upscrolled.com/en/user/baefd870-4e3b-4940-98af-7e321fe9ab9a/" target="_blank">Upscrolled</a>
-          <a class="social-link" href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
-          <a class="social-link" href="https://rhowyen-shop.fourthwall.com" target="_blank">Merch</a>
-          <a class="social-link" href="https://rhowyen.substack.com/" target="_blank">Substack</a>
-          <a class="social-link" href="https://twitter.com/rhowyen_" target="_blank">Twitter</a>
-        </div>
+    <section class="links-section box">
+      <h2>~ My Links ~</h2>
+      <div class="links-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <a id="twitchBtn" class="social-link twitch" href="https://www.twitch.tv/rhowyen" target="_blank">Twitch</a>
+        <a id="youtubeBtn" class="social-link youtube" href="https://www.youtube.com/@rhowyen" target="_blank">YouTube</a>
+        <a class="social-link" href="https://www.throne.com/rhowyen" target="_blank">Throne</a>
+        <a class="social-link" href="https://store.steampowered.com/wishlist/id/rhowyen/" target="_blank">Steam Wish List</a>
+        <a class="social-link" href="https://www.instagram.com/rhowyen/" target="_blank">Instagram</a>
+        <a class="social-link" href="https://www.threads.net/@rhowyen" target="_blank">Threads</a>
+        <a class="social-link" href="https://share.upscrolled.com/en/user/baefd870-4e3b-4940-98af-7e321fe9ab9a/" target="_blank">Upscrolled</a>
+        <a class="social-link" href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
+        <a class="social-link" href="https://rhowyen-shop.fourthwall.com" target="_blank">Merch</a>
+        <a class="social-link" href="https://rhowyen.substack.com/" target="_blank">Substack</a>
+        <a class="social-link" href="https://twitter.com/rhowyen_" target="_blank">Twitter</a>
+      </div>
     </section>
 
     <section class="merch-stall box">
       <h2 class="glitch" data-text="~ The Forgotten Stall ~">~ The Forgotten Stall ~</h2>
       <p>Prints. Stickers. Shirts.</p>
-      <a href="https://rhowyen-shop.fourthwall.com" target="_blank">
-        Enter the Hidden Market →
-      </a>
+      <a href="https://rhowyen-shop.fourthwall.com" target="_blank">Enter the Hidden Market →</a>
     </section>
 
   </main>
@@ -137,24 +133,21 @@
 
 <!--  blessing modal -->
 <div id="bc-modal" class="bc-modal">
-  <div class="modal-content">
+  <div class="bc-modal-content">
     <p id="bc-result"></p>
     <button id="bc-close">Close</button>
   </div>
 </div>
 
 <script src="script.js"></script>
-
 <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
 <script>
 kofiWidgetOverlay.draw('rhowyen', {
   'type': 'floating-chat',
   'floating-chat.donateButton.text': 'Offer a Coin',
-  'floating-chat.donateButton.background-color': '#1f2a1f',
-  'floating-chat.donateButton.text-color': '#d8ffe2'
+  'floating-chat.donateButton.background-color': '#1a2216',
+  'floating-chat.donateButton.text-color': '#9ad47f'
 });
 </script>
-
 </body>
 </html>
-
