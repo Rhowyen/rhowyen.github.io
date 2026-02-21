@@ -1,11 +1,8 @@
-/* theme variables */
-
+/* variables */
 :root {
   --bg-main: #0f1411;
   --bg-soft: #161c17;
   --text-main: #f4f1ea;
-  --accent-green: #2f4f3a;
-  --accent-ember: #8b2e2e;
   --glass-bg: rgba(255,255,255,0.08);
   --glass-border: rgba(255,255,255,0.15);
 }
@@ -18,29 +15,48 @@ html[data-theme="day"] {
   --glass-border: rgba(0,0,0,0.1);
 }
 
+/* body */
 body {
   cursor: none;
+  background: radial-gradient(circle at 20% 30%, rgba(120,255,200,0.15), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(255,120,200,0.15), transparent 40%),
+              var(--bg-main);
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
   transition: background 0.4s ease, color 0.4s ease;
-  background: radial-gradient(circle at 20% 30%, rgba(120,255,200,0.15), transparent 40%),
-              radial-gradient(circle at 80% 70%, rgba(255,120,200,0.15), transparent 40%),
-              #0b0f14;
-  background-attachment: fixed;
   animation: glowShift 12s ease-in-out infinite alternate;
 }
 
+/* glow move */
 @keyframes glowShift {
-  0% {
-    background-position: 20% 30%, 80% 70%;
-  }
-  100% {
-    background-position: 25% 35%, 75% 65%;
-  }
+  0% { background-position: 20% 30%, 80% 70%; }
+  100% { background-position: 25% 35%, 75% 65%; }
 }
 
-/* box style */
+/* subtle glitch flicker */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  animation: flicker 4s infinite;
+  mix-blend-mode: overlay;
+}
 
+@keyframes flicker {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.12; }
+}
+
+/* box */
 .box {
   background: var(--bg-soft);
   border-radius: 18px;
@@ -49,69 +65,26 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* forest background */
-
-.forest-backdrop {
-  position: fixed;
-  inset: 0;
-  background: url("assets/pics/forest-silhouette.png") center center / cover no-repeat;
-  z-index: -10;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* ambient lights  */
-.ambient-lights {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.ambient-lights::before,
-.ambient-lights::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: floatLights 60s linear infinite;
-}
-
-.ambient-lights::after {
-  animation-direction: reverse;
-  opacity: 0.4;
-}
-
-@keyframes floatLights {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-200px, -200px);
-  }
-}
-/* navi cursor with sparkles */
+/* fairy cursor png */
 .fairy-cursor {
   position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: url("assets/pics/cursor.png") center center no-repeat;
-  box-shadow: 0 0 12px #aaffee, 0 0 20px #66ffff;
+  width: 36px;
+  height: 36px;
+  background: url("assets/pics/fairy.png") center center no-repeat;
+  background-size: contain;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
+
+/* sparkle */
 .sparkle {
   position: fixed;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 6px #ffffff, 0 0 12px #aaffee;
+  background: white;
+  box-shadow: 0 0 6px white, 0 0 12px #aaffee;
   pointer-events: none;
   transform: translate(-50%, -50%);
   animation: sparkleFade 0.6s ease-out forwards;
@@ -119,74 +92,17 @@ body {
 }
 
 @keyframes sparkleFade {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -60%) scale(0.2);
-  }
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -60%) scale(0.2); }
 }
+
+/* hide cursor on mobile */
 @media (hover: none) {
-  body {
-    cursor: auto;
-  }
-
-  .fairy-cursor {
-    display: none;
-  }
+  body { cursor: auto; }
+  .fairy-cursor { display: none; }
 }
 
-/* floating controls */
-
-.floating-controls {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 9999;
-}
-
-.floating-controls button {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  padding: 10px 16px;
-  border-radius: 999px;
-  color: var(--text-main);
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.floating-controls button:hover {
-  transform: scale(1.05);
-}
-
-/* social links */
-
-.social-link {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: 14px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--glass-border);
-  font-weight: 600;
-  transition: 0.3s ease;
-  text-decoration: none;
-  color: var(--text-main);
-}
-
-.social-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(255,255,255,0.2);
-}
-/* responsive embed */
-
+/* embed */
 .embed-wrapper {
   position: relative;
   width: 100%;
@@ -204,28 +120,7 @@ body {
   border: 0;
 }
 
-/* twitch glow */
-
-.twitch {
-  box-shadow: 0 0 15px #9146ff;
-}
-
-.twitch:hover {
-  box-shadow: 0 0 35px #9146ff;
-}
-
-/* youtube glow */
-
-.youtube {
-  box-shadow: 0 0 15px #ff0000;
-}
-
-.youtube:hover {
-  box-shadow: 0 0 35px #ff0000;
-}
-
 /* blessing button */
-
 .blessing-curse-btn {
   background: linear-gradient(145deg, #1c2b21, #122018);
   border: 1px solid rgba(255,255,255,0.2);
@@ -241,18 +136,17 @@ body {
 }
 
 /* modal */
-
 #bc-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99999;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s ease;
+  z-index: 99999;
 }
 
 #bc-modal.active {
@@ -260,55 +154,10 @@ body {
   opacity: 1;
 }
 
-#bc-modal .modal-content {
+.modal-content {
   background: var(--bg-soft);
   padding: 2rem;
   border-radius: 20px;
+  max-width: 400px;
   text-align: center;
-  box-shadow: 0 0 40px rgba(0,0,0,0.7);
 }
-
-#bc-modal button {
-  margin-top: 1rem;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-}
-/* collapse system */
-
-.collapse-toggle {
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  padding: 8px 0;
-}
-
-.collapse-content {
-  margin-top: 12px;
-}
-
-/* mobile auto collapse */
-
-@media (max-width: 1024px) {
-  .streams-content {
-    display: none;
-  }
-
-  .streams-content.active {
-    display: block;
-  }
-}
-
-
-
-
-
-
-
-
-
