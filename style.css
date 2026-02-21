@@ -250,6 +250,17 @@ body::after {
   box-shadow: 0 0 20px rgba(120,255,200,0.3);
 }
 
+/* Ko-fi Glow Override */
+#kofi-widget-overlay {
+  filter: drop-shadow(0 0 10px rgba(120,255,160,0.5));
+  animation: kofiFlicker 5s infinite alternate;
+}
+
+@keyframes kofiFlicker {
+  0% { opacity: 0.85; }
+  100% { opacity: 1; }
+}
+
 /* modal */
 #bc-modal {
   position: fixed;
@@ -276,5 +287,6 @@ body::after {
   max-width: 400px;
   text-align: center;
 }
+
 
 
