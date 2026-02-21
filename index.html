@@ -5,72 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rhowyen</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/pics/icons/favicon.png">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind & Custom CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- ---------- Background Gradient ---------- -->
-  <div class="fixed inset-0 bg-gradient-to-b from-black/70 via-zinc-900/70 to-emerald-950/70" style="z-index:-20;"></div>
-  
-  <!-- -----------Ambient lighting thingies  --- -->
-  <div class="ambient-lights"></div>
 
-  <!-- floating controls -->
+<!-- background gradient -->
+<div class="fixed inset-0 bg-gradient-to-b from-black/70 via-zinc-900/70 to-emerald-950/70" style="z-index:-3;"></div>
+
+<!-- forest backdrop -->
+<div class="forest-backdrop"></div>
+
+<!-- particles -->
+<canvas id="particles" class="fixed inset-0 pointer-events-none" style="z-index:-2;"></canvas>
+
+<!-- ambient lights -->
+<div class="ambient-lights"></div>
+
+<!-- floating controls -->
 <div class="floating-controls">
-  <button id="theme-toggle" class="floating-btn" aria-label="Toggle theme">🌙</button>
-  <button id="audio-toggle" class="floating-btn" aria-label="Toggle ambience">🔊</button>
+  <button id="theme-toggle" class="floating-btn">🌙</button>
+  <button id="audio-toggle" class="floating-btn">🔊</button>
 </div>
 
-  <!-- --------- Ambient Audio ------------  -->
+<!-- audio -->
 <audio id="forest-audio" src="assets/audio/forest.mp3" loop></audio>
 
-  <div class="page flex flex-col lg:flex-row gap-6 p-4">
+<div class="page flex flex-col lg:flex-row gap-6 p-4">
 
-    <!-- ---------- Profile Column ---------- -->
-    <aside class="profile box flex flex-col items-center gap-6 w-full lg:w-64 lg:flex-shrink-0">
-      <img src="assets/pics/avatar.jpg" alt="Rhowyen Avatar" class="w-32 h-32 rounded-xl object-cover border border-white/10" />
-      <div class="text-center">
-        <h1 class="text-2xl font-serif">Rhowyen</h1>
-        <p class="text-sm italic mt-1">Some know me as the Clown Queen</p>
-        <p class="status mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold border border-white/20" data-live="false">Currently: Offline</p>
-        <p class="mt-2 text-sm">Find me live on Twitch and YouTube</p>
-      </div>
+  <!-- profile -->
+  <aside class="profile box flex flex-col items-center gap-6 w-full lg:w-64 lg:flex-shrink-0">
+    <img src="assets/pics/avatar.jpg" alt="Rhowyen Avatar" class="w-32 h-32 rounded-xl object-cover border border-white/10" />
+    <div class="text-center">
+      <h1 class="text-2xl font-serif">Rhowyen</h1>
+      <p class="text-sm italic mt-1">Some know me as the Clown Queen</p>
+      <p class="status mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold border border-white/20">Currently: Offline</p>
+      <p class="mt-2 text-sm">Find me live on Twitch and YouTube</p>
+    </div>
 
-      <!--  streams & videos  -->
-      <section class="streams-videos box w-full">
-  <button class="collapse-toggle streams-toggle">
-    ~ Streams & Videos ~
-  </button>
+    <!-- streams -->
+    <section class="streams-videos box w-full">
+      <button class="collapse-toggle streams-toggle">~ Streams & Videos ~</button>
+      <div class="collapse-content streams-content">
 
-  <div class="collapse-content streams-content">
-        <div class="stream-embeds flex flex-col gap-4">
-          <!-- Twitch Embed -->
-          <div class="embed-wrapper">
-  <iframe
-    src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="embed-wrapper">
-  <iframe
-    src="https://www.youtube.com/embed/videoseries?list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY"
-    allowfullscreen>
-  </iframe>
-</div>
+        <div class="embed-wrapper">
+          <iframe src="https://player.twitch.tv/?channel=rhowyen&parent=rhowyen.github.io" allowfullscreen></iframe>
         </div>
+
+        <div class="embed-wrapper">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL77QiS0pBNSWN4QlEtqW1c_9dfWYpEPCY" allowfullscreen></iframe>
+        </div>
+
         <div class="upcoming-streams mt-4">
-          <h3>~ Upcoming Streams~ </h3>
+          <h3>~ Upcoming Streams ~</h3>
           <ul>
             <li>Monday 9 PM EST – Cozy Chats</li>
             <li>Wednesday 9 PM EST – Zelda Adventures</li>
@@ -78,175 +72,81 @@
           </ul>
         </div>
 
-      </section>
-    </aside>
-
-    <!-- ---------- Main Column ---------- -->
-    <main class="content box flex-1 flex flex-col gap-6">
-
-      <!-- offline banner  -->
-      <img id="offline-banner" src="assets/pics/offlinebanner.jpg" alt="Offline banner">
-
-      <!--  about section  -->
-      <section class="about box">
-        <button class="collapse-toggle">About Me</button>
-        <div class="collapse-content">
-          <p>
-            Hi! I’m Rhowyen, a green-haired, clown-loving, cozy streamer who loves chill games (like the Legend of Zelda),
-            my cat Stoney, random lore drops, and hanging out with friends online.
-            Carefully balancing clownish antics with relaxing vibes and adventuring through beautiful virtual worlds.
-          </p>
-        </div>
-      </section>
-      
-      <section class="blessing-curse box">
-  <button id="blessing-btn" class="blessing-curse-btn">
-    ✦ Blessing or Curse ✦
-  </button>
-</section>
-        
-      
-
-<div id="bc-modal">
-  <div class="modal-content">
-    <p id="bc-result"></p>
-    <button id="bc-close">Close</button>
-  </div>
-</div>
-
-      <!--  links section  -->
-      <section class="links-section box">
-        <h2>~ My Links ~</h2>
-        <div class="links-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <a id="twitchBtn" class="social-link twitch" href="https://www.twitch.tv/rhowyen" target="_blank">Twitch</a>
-          <a id="youtubeBtn" class="social-link youtube" href="https://www.youtube.com/@rhowyen" target="_blank">YouTube</a>
-          <a class="social-link" href="https://www.throne.com/rhowyen" target="_blank">Throne</a>
-          <a class="social-link" href="https://store.steampowered.com/wishlist/id/rhowyen/" target="_blank">Steam Wish List</a>
-          <a class="social-link" href="https://www.instagram.com/rhowyen/" target="_blank">Instagram</a>
-          <a class="social-link" href="https://www.threads.net/@rhowyen" target="_blank">Threads</a>
-          <a class="social-link" href="https://share.upscrolled.com/en/user/baefd870-4e3b-4940-98af-7e321fe9ab9a/" target="_blank">Upscrolled</a>
-          <a class="social-link" href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
-          <a class="social-link" href="https://rhowyen-shop.fourthwall.com" target="_blank">Merch</a>
-          <a class="social-link" href="https://rhowyen.substack.com/" target="_blank">Substack</a>
-          <a class="social-link" href="https://twitter.com/rhowyen_" target="_blank">Twitter</a>
-        </div>
-       
-
-      <!--  writing & essays -->
-      <section class="writing-essays box">
-        <h2>~ Writing & Essays ~</h2>
-        <div class="substack-previews mb-4">
-          <iframe src="https://rhowyen.substack.com/embed" width="100%" height="200" frameborder="0"></iframe>
-        </div>
-        <!--  
-        <div class="cozy-illustrations grid gap-4 mb-4">
-          <img src="assets/pics/doodle1.jpg" alt="Cozy doodle 1">
-          <img src="assets/pics/doodle2.jpg" alt="Cozy doodle 2">
-        </div> 
-        -->
-      
-<!-- ---------- The Forgotten Stall ---------- -->
-<section class="merch-stall box">
-  <h2 class="glitch" data-text="~ The Forgotten Stall ~">
-    ~ The Forgotten Stall ~
-  </h2>
-
-  <p class="stall-whisper">
-    The lantern still glows… though no one remembers who tends it.
-    <br>
-    Prints. Stickers. A few relic garments.
-  </p>
-
-  <div class="merch-preview">
-    <div class="merch-type"> Prints</div>
-    <div class="merch-type"> Stickers</div>
-    <div class="merch-type"> Shirts</div>
-  </div>
-
-  <div class="merch-portal">
-    <a href="https://rhowyen-shop.fourthwall.com" target="_blank">
-      Enter the Hidden Market →
-    </a>
-  </div>
-</section>
-      </section>
-      </section>
-      </section>
-      
-    </main>
-    <!-- ---------- Community / Discord / Fan Art ---------- -->
-    <aside class="community box flex flex-col gap-6 w-full lg:w-64 lg:flex-shrink-0">
-      <h2>~ Community Corner ~</h2>
-
-      <!-- Discord Widget -->
-      <div class="discord-widget">
-        <iframe id="discord-iframe" src="https://discord.com/widget?id=1219428215546712117&theme=dark" class="w-full h-96 rounded-xl border border-white/10 shadow-inner" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
       </div>
-      <button class="discord-toggle mt-2">Join the Community</button>
+    </section>
+  </aside>
 
+  <!-- main -->
+  <main class="content box flex-1 flex flex-col gap-6">
 
-      <!-- Fan Art Gallery -->
-      <!-- <div class="fan-art grid gap-2 mt-4">
-        <h2>~ Fan Art Gallery ~</h2>
-        <img src="assets/pics/fanart1.jpg" alt="Fan Art 1" class="rounded-lg shadow-md">
-        <img src="assets/pics/fanart2.jpg" alt="Fan Art 2" class="rounded-lg shadow-md">
-        
-      </div> -->
-    </aside>
+    <img id="offline-banner" src="assets/pics/offlinebanner.jpg" alt="Offline banner">
 
-  </div>
-  
-<!-- Blessing / Curse Modal -->
-<div id="bc-modal">
+    <section class="about box">
+      <button class="collapse-toggle">About Me</button>
+      <div class="collapse-content">
+        <p>
+          Hi! I’m Rhowyen, a green-haired, clown-loving, cozy streamer who loves chill games (like the legend of Zelda heheh),
+          my cat Stoney, random lore drops, and hanging out with friends online.
+        </p>
+      </div>
+    </section>
+
+    <section class="blessing-curse box">
+      <button id="blessing-btn" class="blessing-curse-btn">
+        ✦ Blessing or Curse ✦
+      </button>
+    </section>
+
+    <section class="links-section box">
+      <h2>~ My Links ~</h2>
+      <div class="links-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <a class="social-link" href="https://www.twitch.tv/rhowyen" target="_blank">Twitch</a>
+        <a class="social-link" href="https://www.youtube.com/@rhowyen" target="_blank">YouTube</a>
+        <a class="social-link" href="https://ko-fi.com/rhowyen" target="_blank">Ko-fi</a>
+        <a class="social-link" href="https://rhowyen-shop.fourthwall.com" target="_blank">Merch</a>
+      </div>
+    </section>
+
+    <section class="merch-stall box">
+      <h2 class="glitch" data-text="~ The Forgotten Stall ~">~ The Forgotten Stall ~</h2>
+      <p>Prints. Stickers. Shirts.</p>
+      <a href="https://rhowyen-shop.fourthwall.com" target="_blank">
+        Enter the Hidden Market →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- community -->
+  <aside class="community box flex flex-col gap-6 w-full lg:w-64 lg:flex-shrink-0">
+    <h2>~ Community Corner ~</h2>
+    <iframe src="https://discord.com/widget?id=1219428215546712117&theme=dark"
+      class="w-full h-96 rounded-xl border border-white/10"
+      allowtransparency="true"
+      frameborder="0"></iframe>
+  </aside>
+
+</div>
+
+<!--  blessing modal -->
+<div id="bc-modal" class="bc-modal">
   <div class="modal-content">
     <p id="bc-result"></p>
     <button id="bc-close">Close</button>
   </div>
 </div>
-  <!-- ---------- Sparkles Canvas ---------- -->
-  <canvas id="particles" class="fixed inset-0" style="z-index:-20;"></canvas>
 
-  <!-- ---------- Scripts ---------- -->
-  <script src="script.js"></script>
-  <!-- Kofi -->
-  <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+<script src="script.js"></script>
+
+<script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
 <script>
-  kofiWidgetOverlay.draw('rhowyen', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Offer a Coin',
-    'floating-chat.donateButton.background-color': '#1f2a1f',
-    'floating-chat.donateButton.text-color': '#d8ffe2'
-  });
+kofiWidgetOverlay.draw('rhowyen', {
+  'type': 'floating-chat',
+  'floating-chat.donateButton.text': 'Offer a Coin',
+  'floating-chat.donateButton.background-color': '#1f2a1f',
+  'floating-chat.donateButton.text-color': '#d8ffe2'
+});
 </script>
-  <!-- /* ---------- Forest Parallax Layer ---------- */ -->
-<div class="forest-backdrop"></div>
-  
-  <!-- ------ navi cursor --------  -->
-<div class="fairy-cursor"></div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
