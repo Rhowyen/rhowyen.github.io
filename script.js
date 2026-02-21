@@ -18,46 +18,37 @@ document.addEventListener("mousemove", e => {
   setTimeout(() => sparkle.remove(), 600);
 });
 
-/* blessing curse */
+/* blessing or curse */
+
+const blessingBtn = document.getElementById("blessing-btn");
+const bcModal = document.getElementById("bc-modal");
+const bcResult = document.getElementById("bc-result");
+const bcClose = document.getElementById("bc-close");
+
 const blessings = [
-  "You gain radiant forest luck. Your next quest succeeds.",
-  "A hidden ally reveals themselves soon.",
-  "Your energy is restored by unseen forces.",
+  "You will find a hidden opportunity soon.",
+  "Your next stream will attract someone important.",
+  "A creative idea will bloom unexpectedly."
 ];
 
 const curses = [
-  "A minor inconvenience stalks your week.",
-  "You will misplace something small but important.",
-  "A shadow lingers in your next decision.",
+  "Your tea will go cold before you sip it.",
+  "A minor inconvenience will test your patience.",
+  "You will forget why you entered a room."
 ];
 
-const modal = document.createElement("div");
-modal.id = "bc-modal";
-modal.innerHTML = `
-  <div class="modal-content">
-    <h3 id="bc-title"></h3>
-    <p id="bc-text"></p>
-    <button id="bc-close">Close</button>
-  </div>
-`;
-document.body.appendChild(modal);
+blessingBtn.addEventListener("click", () => {
+  const isBlessing = Math.random() < 0.5;
+  const result = isBlessing
+    ? blessings[Math.floor(Math.random() * blessings.length)]
+    : curses[Math.floor(Math.random() * curses.length)];
 
-document.addEventListener("click", e => {
-  if (e.target.classList.contains("blessing-curse-btn")) {
-    const isBlessing = Math.random() > 0.5;
-    const title = document.getElementById("bc-title");
-    const text = document.getElementById("bc-text");
+  bcResult.textContent = result;
+  bcModal.classList.add("active");
+});
 
-    if (isBlessing) {
-      title.textContent = "Blessing 🌿";
-      text.textContent = blessings[Math.floor(Math.random()*blessings.length)];
-    } else {
-      title.textContent = "Curse 🔥";
-      text.textContent = curses[Math.floor(Math.random()*curses.length)];
-    }
-
-    modal.classList.add("active");
-  }
+bcClose.addEventListener("click", () => {
+  bcModal.classList.remove("active");
 });
 
  /* theme toggle */
@@ -91,4 +82,5 @@ audioBtn.addEventListener("click", () => {
     audioBtn.textContent = "🔊";
   }
 });
+
 
