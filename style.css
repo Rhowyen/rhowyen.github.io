@@ -1,4 +1,4 @@
-/* theme vars */
+/* ------------------ Theme ------------------ */
 :root {
   --bg-main: #0e120c;
   --bg-soft: #1a2216;
@@ -15,7 +15,7 @@ html[data-theme="day"] {
   --glass: rgba(0,0,0,0.1);
 }
 
-/* base */
+/* ------------------ Base ------------------ */
 body {
   margin: 0;
   background: var(--bg-main);
@@ -24,34 +24,7 @@ body {
   cursor: none;
 }
 
-/* forest */
-.forest-bg {
-  position: fixed;
-  inset: 0;
-  background: url("assets/pics/forest-silhouette.png") bottom center no-repeat;
-  background-size: cover;
-  opacity: 0.4;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* fireflies */
-#fireflies {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* layout */
-.main-layout {
-  display: flex;
-  gap: 2rem;
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
+/* ------------------ Layout ------------------ */
 .box {
   background: var(--bg-soft);
   padding: 1.5rem;
@@ -60,27 +33,23 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* profile */
-.profile {
-  width: 280px;
-  text-align: center;
+.main-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-.avatar {
-  width: 120px;
-  border-radius: 50%;
-}
+/* ------------------ Profile ------------------ */
+.profile { width: 280px; text-align:center; }
+.avatar { width: 120px; border-radius:50%; }
 
-.offline-banner {
-  margin: 1rem 0;
-  padding: 0.5rem;
-  background: #3a1f1f;
-  border-radius: 8px;
-}
-
-/* buttons */
-button {
-  background: var(--glass); /* translucent glass */
+/* ------------------ Buttons ------------------ */
+button, .social-link {
+  position: relative;
+  display: inline-block;
+  background: var(--glass);
   color: var(--text-main);
   border: 1px solid var(--glass);
   padding: 0.7rem 1.2rem;
@@ -88,62 +57,43 @@ button {
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 8px rgba(0,0,0,0.2); /* subtle base glow */
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   font-weight: 600;
   text-transform: uppercase;
   transition: all 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
-/* Hover effect for all buttons */
-button:hover {
+/* Hover effect */
+button:hover, .social-link:hover {
   transform: translateY(-2px);
 }
 
-/* Twitch Button */
-button.twitch {
-  --btn-glow: #9146ff;
-  border-color: rgba(145,70,255,0.4);
+/* Twitch */
+button.twitch, .social-link.twitch { --btn-glow:#9146ff; border-color: rgba(145,70,255,0.4); }
+button.twitch:hover, .social-link.twitch:hover {
+  box-shadow:0 0 10px var(--btn-glow),0 0 20px var(--btn-glow),0 0 40px var(--btn-glow),0 0 80px var(--btn-glow);
 }
 
-button.twitch:hover {
-  box-shadow:
-    0 0 10px var(--btn-glow),
-    0 0 20px var(--btn-glow),
-    0 0 40px var(--btn-glow),
-    0 0 80px var(--btn-glow);
+/* YouTube */
+button.youtube, .social-link.youtube { --btn-glow:#ff0000; border-color: rgba(255,0,0,0.4); }
+button.youtube:hover, .social-link.youtube:hover {
+  box-shadow:0 0 10px var(--btn-glow),0 0 20px var(--btn-glow),0 0 40px var(--btn-glow),0 0 80px var(--btn-glow);
 }
 
-/* YouTube Button */
-button.youtube {
-  --btn-glow: #ff0000;
-  border-color: rgba(255,0,0,0.4);
+/* Hover glow pseudo */
+button::after, .social-link::after {
+  content:"";
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  border-radius:999px;
+  opacity:0;
+  box-shadow:0 0 20px var(--btn-glow);
+  transition:opacity 0.3s ease;
 }
+button:hover::after, .social-link:hover::after { opacity:0.3; }
 
-button.youtube:hover {
-  box-shadow:
-    0 0 10px var(--btn-glow),
-    0 0 20px var(--btn-glow),
-    0 0 40px var(--btn-glow),
-    0 0 80px var(--btn-glow);
-}
-
-/* small ripple/glow animation */
-button::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border-radius: 999px;
-  opacity: 0;
-  box-shadow: 0 0 20px var(--btn-glow);
-  transition: opacity 0.3s ease;
-}
-
-button:hover::after {
-  opacity: 0.3;
-}
-
-/* modal */
+/* ------------------ Modal ------------------ */
 .bc-modal {
   position: fixed;
   inset: 0;
@@ -153,11 +103,7 @@ button:hover::after {
   justify-content: center;
   z-index: 10000;
 }
-
-.bc-modal.active {
-  display: flex;
-}
-
+.bc-modal.active { display:flex; }
 .bc-modal-content {
   background: var(--bg-soft);
   padding: 2rem;
@@ -167,7 +113,7 @@ button:hover::after {
   width: 90%;
 }
 
-/* floating controls */
+/* ------------------ Floating Controls ------------------ */
 .floating-controls {
   position: fixed;
   top: 1rem;
@@ -177,14 +123,8 @@ button:hover::after {
   z-index: 2000;
 }
 
-/* mobile */
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-
-  .profile {
-    width: 100%;
-  }
+/* ------------------ Responsive ------------------ */
+@media(max-width:768px) {
+  .main-layout { flex-direction: column; }
+  .profile { width:100%; }
 }
-
