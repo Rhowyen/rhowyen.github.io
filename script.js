@@ -1,96 +1,127 @@
-/* fairy cursor */
-const fairy = document.createElement("div");
-fairy.className = "fairy-cursor";
-document.body.appendChild(fairy);
+/* blessing logic */
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("mousemove", e => {
-  if (window.innerWidth < 768) return;
+  const blessings = [
+    "You gain radiant forest luck. Your next quest succeeds.",
+    "A hidden ally reveals themselves soon.",
+    "Your energy is restored by unseen forces."
+  ];
 
-  fairy.style.left = e.clientX + "px";
-  fairy.style.top = e.clientY + "px";
+  const curses = [
+    "A minor inconvenience stalks your week.",
+    "You will misplace something small but important.",
+    "A shadow lingers in your next decision.",
+    "Sucks to suck yo"
+  ];
 
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.style.left = e.clientX + "px";
-  sparkle.style.top = e.clientY + "px";
-  document.body.appendChild(sparkle);
+  const blessingBtn = document.getElementById("blessing-btn");
+  const modal = document.getElementById("bc-modal");
+  const result = document.getElementById("bc-result");
+  const closeBtn = document.getElementById("bc-close");
 
-  setTimeout(() => sparkle.remove(), 600);
+  blessingBtn?.addEventListener("click", () => {
+    const list = Math.random() < 0.5 ? blessings : curses;
+    result.textContent = list[Math.floor(Math.random() * list.length)];
+    modal.classList.add("active");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  modal?.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.remove("active");
+  });
+
 });
 
-/* blessing or curse */
-const blessingBtn = document.getElementById("blessing-btn");
-const bcModal = document.getElementById("bc-modal");
-const bcResult = document.getElementById("bc-result");
-const bcClose = document.getElementById("bc-close");
-
-const blessings = [
-  "You gain radiant forest luck. Your next quest succeeds.",
-  "A hidden ally reveals themselves soon.",
-  "Your energy is restored by unseen forces."
-];
-
-const curses = [
-  "A minor inconvenience stalks your week.",
-  "You will misplace something small but important.",
-  "A shadow lingers in your next decision.",
-  "Sucks to suck yo"
-];
-
-blessingBtn.addEventListener("click", () => {
-  const isBlessing = Math.random() < 0.5;
-
-  const result = isBlessing
-    ? blessings[Math.floor(Math.random() * blessings.length)]
-    : curses[Math.floor(Math.random() * curses.length)];
-
-  bcResult.textContent = result;
-
-  bcModal.classList.add("active");
+/* theme toggle */
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle?.addEventListener("click", () => {
+  const html = document.documentElement;
+  const isDay = html.dataset.theme === "day";
+  html.dataset.theme = isDay ? "night" : "day";
+  themeToggle.textContent = isDay ? "🌙" : "☀️";
 });
 
-bcClose.addEventListener("click", () => {
-  bcModal.classList.remove("active");
-});
-
-/* click outside modal to close */
-bcModal.addEventListener("click", (e) => {
-  if (e.target === bcModal) {
-    bcModal.classList.remove("active");
-  }
-});
-
- /* theme toggle */
-
-const themeBtn = document.getElementById("theme-toggle");
-const html = document.documentElement;
-
-themeBtn.addEventListener("click", () => {
-  const current = html.dataset.theme;
-  const newTheme = current === "day" ? "night" : "day";
-
-  html.dataset.theme = newTheme;
-
-  themeBtn.textContent = newTheme === "day" ? "☀️" : "🌙";
-});
-
-
-/* ambient audio */
-
+/* audio toggle */
 const audio = document.getElementById("forest-audio");
-const audioBtn = document.getElementById("audio-toggle");
+const audioToggle = document.getElementById("audio-toggle");
 
-audio.volume = 0.3;
-
-audioBtn.addEventListener("click", () => {
+audioToggle?.addEventListener("click", async () => {
   if (audio.paused) {
-    audio.play();
-    audioBtn.textContent = "🔇";
+    await audio.play();
+    audioToggle.textContent = "🔇";
   } else {
     audio.pause();
-    audioBtn.textContent = "🔊";
+    audioToggle.textContent = "🔊";
   }
 });
 
+/* fairy cursor */
+const cursor = document.createElement("img");
+cursor.src = "assets/pics/cursor.png";
+cursor.style.position = "fixed";
+cursor.style.pointerEvents = "none";
+cursor.style.width = "40px";
+cursor.style.zIndex = "3000";
+document.body.appendChild(cursor);
 
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
 
+  const sparkle = document.createElement("div");
+  sparkle.style.position = "fixed";
+  sparkle.style.left = e.clientX + "px";
+  sparkle.style.top = e.clientY + "px";
+  sparkle.style.width = "6px";
+  sparkle.style.height = "6px";
+  sparkle.style.background = "#9ad47f";
+  sparkle.style.borderRadius = "50%";
+  sparkle.style.opacity = "1";
+  sparkle.style.pointerEvents = "none";
+  sparkle.style.transition = "0.6s ease";
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.style.opacity = "0";
+    sparkle.remove();
+  }, 600);
+});
+
+/* fireflies */
+const canvas = document.getElementById("fireflies");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const fireflies = Array.from({ length: 40 }).map(() => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2 + 1,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  fireflies.forEach(f => {
+    f.x += f.dx;
+    f.y += f.dy;
+
+    ctx.beginPath();
+    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(154,212,127,0.7)";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
