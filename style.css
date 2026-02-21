@@ -134,6 +134,37 @@ body::after {
 .blessing-curse-btn:hover {
   box-shadow: 0 0 18px rgba(100,255,180,0.6);
 }
+/* merch section */
+.merch-stall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.merch-item {
+  background: var(--bg-soft);
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid var(--glass-border);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.merch-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.merch-item h4 {
+  margin-top: 1rem;
+}
+
+.merch-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(120,255,200,0.3);
+}
 
 /* modal */
 #bc-modal {
@@ -161,3 +192,4 @@ body::after {
   max-width: 400px;
   text-align: center;
 }
+
