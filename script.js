@@ -1,13 +1,11 @@
 /* Fairy cursor (Navi) */
 const cursor = document.createElement("div");
-cursor.className = "fairy-cursor"; 
+cursor.classList.add("fairy-cursor");
 document.body.appendChild(cursor);
 
-const sparkles = []; // array to hold sparkles
-
-// handle mouse position
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+document.addEventListener("mousemove", (e) => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
 
 document.addEventListener("mousemove", e => {
   mouseX = e.clientX;
@@ -120,4 +118,5 @@ updateDiscordTheme();
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
+
 
