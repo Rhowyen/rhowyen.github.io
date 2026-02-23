@@ -1,105 +1,124 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* Fairy cursor (Navi) */
+/* SIMPLE CUSTOM CURSOR WITH SPARKLE TRAIL */
 
-  // ---------------- Blessing & Curse ----------------
-  const blessings = [
-    "You gain radiant forest luck. Your next quest succeeds.",
-    "A hidden ally reveals themselves soon.",
-    "Your energy is restored by unseen forces."
-  ];
+const cursor = document.createElement("div");
+cursor.className = "fairy-cursor"; // use your PNG via CSS
+document.body.appendChild(cursor);
 
-  const curses = [
-    "A minor inconvenience stalks your week.",
-    "You will misplace something small but important.",
-    "A shadow lingers in your next decision.",
-    "Sucks to suck yo"
-  ];
+const sparkles = []; // array to hold sparkles
 
-  const blessingBtn = document.getElementById("blessing-btn");
-  const modal = document.getElementById("bc-modal");
-  const result = document.getElementById("bc-result");
-  const closeBtn = document.getElementById("bc-close");
+// handle mouse position
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-  blessingBtn?.addEventListener("click", () => {
-    const list = Math.random() < 0.5 ? blessings : curses;
-    result.textContent = list[Math.floor(Math.random() * list.length)];
-    modal.classList.add("active");
-  });
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 
-  closeBtn?.addEventListener("click", () => modal.classList.remove("active"));
-  modal?.addEventListener("click", e => { if(e.target===modal) modal.classList.remove("active"); });
+  // create a new sparkle
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.style.left = mouseX + "px";
+  sparkle.style.top = mouseY + "px";
+  document.body.appendChild(sparkle);
+  sparkles.push(sparkle);
 
-  // ---------------- Theme Toggle ----------------
-  const themeToggle = document.getElementById("theme-toggle");
-  themeToggle?.addEventListener("click", () => {
-    const html = document.documentElement;
-    const isDay = html.dataset.theme === "day";
-    html.dataset.theme = isDay ? "night" : "day";
-    themeToggle.textContent = isDay ? "🌙" : "☀️";
-  });
+  // remove sparkle after 0.5s
+  setTimeout(() => {
+    sparkle.remove();
+    sparkles.shift();
+  }, 500);
+});
 
-  // ---------------- Audio Toggle ----------------
-  const audio = document.getElementById("forest-audio");
-  const audioToggle = document.getElementById("audio-toggle");
-  audioToggle?.addEventListener("click", async () => {
-    if(audio.paused){ await audio.play(); audioToggle.textContent="🔇"; }
-    else{ audio.pause(); audioToggle.textContent="🔊"; }
-  });
+// animate cursor
+function animateCursor() {
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animateCursor);
+}
 
-  // ---------------- Fairy Cursor ----------------
-  const cursor = document.createElement("img");
-  cursor.src = "assets/pics/cursor.png";
-  cursor.style.position="fixed";
-  cursor.style.pointerEvents="none";
-  cursor.style.width="40px";
-  cursor.style.zIndex="3000";
-  document.body.appendChild(cursor);
+animateCursor();
 
-  document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+/* Blessing */
+const blessings=[
+"You gain radiant forest luck.",
+"A hidden ally appears.",
+"Your energy is restored.",
+"Your next stream will be unexpectedly successful."
+];
 
-    const sparkle = document.createElement("div");
-    sparkle.style.position="fixed";
-    sparkle.style.left = e.clientX+"px";
-    sparkle.style.top = e.clientY+"px";
-    sparkle.style.width = "6px";
-    sparkle.style.height = "6px";
-    sparkle.style.background="#9ad47f";
-    sparkle.style.borderRadius="50%";
-    sparkle.style.opacity="1";
-    sparkle.style.pointerEvents="none";
-    sparkle.style.transition="0.6s ease";
-    document.body.appendChild(sparkle);
+const curses=[
+"A shadow lingers.",
+"You misplace something small.",
+"Minor chaos approaches.",
+"You will stub your toe in 57 hours."
+];
 
-    setTimeout(()=>{ sparkle.style.opacity="0"; sparkle.remove(); },600);
-  });
+const blessingBtn=document.getElementById("blessing-btn");
+const bcModal=document.getElementById("bc-modal");
+const bcResult=document.getElementById("bc-result");
+const bcClose=document.getElementById("bc-close");
 
-  // ---------------- Fireflies ----------------
-  const canvas = document.getElementById("fireflies");
-  const ctx = canvas.getContext("2d");
+blessingBtn.onclick=()=>{
+const pool=Math.random()<0.5?blessings:curses;
+bcResult.textContent=pool[Math.floor(Math.random()*pool.length)];
+bcModal.style.display="flex";
+};
 
-  function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
-  resize();
-  window.addEventListener("resize", resize);
+bcClose.onclick=()=>bcModal.style.display="none";
 
-  const fireflies = Array.from({length:40}).map(()=>({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*2+1,
-    dx:(Math.random()-0.5)*0.5,
-    dy:(Math.random()-0.5)*0.5
-  }));
+/* Theme */
+const themeBtn=document.getElementById("theme-toggle");
+themeBtn.onclick=()=>{
+const html=document.documentElement;
+html.dataset.theme=html.dataset.theme==="day"?"night":"day";
+};
 
-  function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    fireflies.forEach(f=>{
-      f.x+=f.dx; f.y+=f.dy;
-      ctx.beginPath();
-      ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-      ctx.fillStyle="rgba(154,212,127,0.7)";
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
+/* Audio */
+const audio=document.getElementById("forest-audio");
+audio.volume=0.3;
+document.getElementById("audio-toggle").onclick=()=>{
+audio.paused?audio.play():audio.pause();
+};
+
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+resize();
+window.onresize=resize;
+
+let flies=Array.from({length:30},()=>({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2+1,
+dx:(Math.random()-0.5)*0.3,
+dy:(Math.random()-0.5)*0.3
+}));
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+flies.forEach(f=>{
+f.x+=f.dx;
+f.y+=f.dy;
+ctx.beginPath();
+ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+ctx.fillStyle="rgba(255,255,180,0.8)";
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+animate();
+
+/* Discord Theme Sync */
+
+const discordFrame = document.querySelector(".discord-container iframe");
+
+function updateDiscordTheme(){
+  const theme = document.documentElement.dataset.theme === "day" ? "light" : "dark";
+  const serverID = "YOUR_SERVER_ID";
+
+  discordFrame.src = `https://discord.com/widget?id=${serverID}&theme=${theme}`;
+}
+
+updateDiscordTheme();
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  setTimeout(updateDiscordTheme, 100);
 });
