@@ -1,38 +1,33 @@
 /* Fairy cursor (Navi) */
+let mouseX = 0;
+let mouseY = 0;
+
+const sparkles = [];
+
 const cursor = document.createElement("div");
 cursor.classList.add("fairy-cursor");
 document.body.appendChild(cursor);
 
 document.addEventListener("mousemove", (e) => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
-
-document.addEventListener("mousemove", e => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 
-  // create a new sparkle
+  // Move cursor
+  cursor.style.left = mouseX + "px";
+  cursor.style.top = mouseY + "px";
+
+  // Create sparkle
   const sparkle = document.createElement("div");
   sparkle.className = "sparkle";
   sparkle.style.left = mouseX + "px";
   sparkle.style.top = mouseY + "px";
-  document.body.appendChild(sparkle);
-  sparkles.push(sparkle);
 
-  // remove sparkle after 0.5s
+  document.body.appendChild(sparkle);
+
   setTimeout(() => {
     sparkle.remove();
-    sparkles.shift();
-  }, 500);
+  }, 400);
 });
-
-// animate cursor
-function animateCursor() {
-  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
 
 /* Blessing */
 const blessings=[
@@ -118,5 +113,6 @@ updateDiscordTheme();
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
+
 
 
