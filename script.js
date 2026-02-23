@@ -1,8 +1,6 @@
 /* Fairy cursor (Navi) */
-/* SIMPLE CUSTOM CURSOR WITH SPARKLE TRAIL */
-
 const cursor = document.createElement("div");
-cursor.className = "fairy-cursor"; // use your PNG via CSS
+cursor.className = "fairy-cursor"; 
 document.body.appendChild(cursor);
 
 const sparkles = []; // array to hold sparkles
@@ -122,3 +120,4 @@ updateDiscordTheme();
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
+
