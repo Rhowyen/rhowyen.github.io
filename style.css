@@ -127,7 +127,7 @@ border-radius:18px;
   position: fixed;
   width: 36px;
   height: 36px;
-  background: url("assets/pics/cursor.png") center/contain no-repeat;
+  background: url("./assets/pics/cursor.png") center/contain no-repeat;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
@@ -422,3 +422,4 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
