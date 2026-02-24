@@ -198,7 +198,7 @@ const statusText = document.querySelector(".status");
 const offlineBanner = document.getElementById("offline-banner");
 const twitchContainer = document.getElementById("twitch-embed");
 
-const CLIENT_ID = "PASTE_YOUR_CLIENT_ID_HERE";
+const CLIENT_ID = "p5ec6uqdkek2eqs9hauhb6gjm640br";
 const CHANNEL_NAME = "rhowyen";
 
 // Create Twitch Embed (hidden initially)
@@ -220,7 +220,7 @@ async function checkIfLive() {
       `https://api.twitch.tv/helix/streams?user_login=${CHANNEL_NAME}`,
       {
         headers: {
-          "Client-ID": p5ec6uqdkek2eqs9hauhb6gjm640br
+          "Client-ID": CLIENT_ID
         }
       }
     );
@@ -294,6 +294,7 @@ setInterval(checkIfLive, 60000);
 </script> -->
 </body>
 </html>
+
 
 
 
