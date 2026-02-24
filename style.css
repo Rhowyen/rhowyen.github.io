@@ -197,8 +197,8 @@ border-radius:18px;
 .blessing-btn:hover{
   animation:glitchFlicker 0.2s infinite alternate;
 }
-/* Blessing / Curse Modal */
 
+/* Blessing / Curse Modal */
 #bc-modal{
   display:none;
   position:fixed;
@@ -250,6 +250,7 @@ border-radius:18px;
   box-shadow:0 0 15px rgba(255,255,255,0.4);
   transform:scale(1.05);
 }
+
 /* Portal entrance */
 
 @keyframes portalIn{
@@ -332,7 +333,8 @@ html[data-theme="day"] .modal-content{
 .merch-stall {
   position: relative;
   overflow: hidden;
-  transition: 0.4s ease;
+  transition: 0.4s ease; 
+  text: center;
 }
 
 .merch-stall:hover {
@@ -422,4 +424,5 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
