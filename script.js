@@ -88,6 +88,65 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
 
+// Twitch Live Detection
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const statusText = document.querySelector(".status");
+  const offlineBanner = document.getElementById("offline-banner");
+  const twitchContainer = document.getElementById("twitch-embed");
+
+  if (!statusText || !offlineBanner || !twitchContainer) return;
+
+  // Load Twitch Embed Script
+  const twitchScript = document.createElement("script");
+  twitchScript.src = "https://embed.twitch.tv/embed/v1.js";
+  twitchScript.onload = initTwitch;
+  document.body.appendChild(twitchScript);
+
+  function initTwitch() {
+
+    const embed = new Twitch.Embed("twitch-embed", {
+      width: "100%",
+      height: 480,
+      channel: "rhowyen",
+      layout: "video",
+      autoplay: false,
+      muted: true,
+      parent: ["rhowyen.github.io"]
+    });
+
+    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+      const player = embed.getPlayer();
+
+      // When stream actually starts playing → assume LIVE
+      player.addEventListener(Twitch.Player.PLAY, () => {
+        goLive();
+      });
+
+      // If stream stops → assume OFFLINE
+      player.addEventListener(Twitch.Player.ENDED, () => {
+        goOffline();
+      });
+    });
+  }
+
+  function goLive() {
+    offlineBanner.style.display = "none";
+    twitchContainer.style.display = "block";
+    statusText.textContent = "Currently: Live";
+    statusText.dataset.live = "true";
+  }
+
+  function goOffline() {
+    twitchContainer.style.display = "none";
+    offlineBanner.style.display = "block";
+    statusText.textContent = "Currently: Offline";
+    statusText.dataset.live = "false";
+  }
+
+});
+
 
 
 
