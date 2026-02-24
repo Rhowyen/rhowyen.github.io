@@ -143,7 +143,7 @@ border-radius:18px;
   pointer-events: none;
   transform: translate(-50%, -50%);
   opacity: 1;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.8s ease;
 }
 
 
@@ -356,6 +356,7 @@ html[data-theme="day"] .modal-content{
   gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 18px;
+  border: 1px solid var(--glass-border);
 }
 
 /* Category buttons */
@@ -424,6 +425,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
