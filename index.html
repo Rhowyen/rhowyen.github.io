@@ -191,7 +191,69 @@ Hi! I’m Rhowyen, a green-haired, clown-loving, cozy streamer who loves chill g
 </div>
 </div>
 
-<script src="script.js"></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+<script>
+const statusText = document.querySelector(".status");
+const offlineBanner = document.getElementById("offline-banner");
+const twitchContainer = document.getElementById("twitch-embed");
+
+const CLIENT_ID = "PASTE_YOUR_CLIENT_ID_HERE";
+const CHANNEL_NAME = "rhowyen";
+
+// Create Twitch Embed (hidden initially)
+const embed = new Twitch.Embed("twitch-embed", {
+  width: "100%",
+  height: 480,
+  channel: CHANNEL_NAME,
+  layout: "video",
+  autoplay: false,
+  muted: true,
+  theme: "dark",
+  parent: ["rhowyen.github.io"]
+});
+
+// 🔥 LIVE CHECK FUNCTION
+async function checkIfLive() {
+  try {
+    const response = await fetch(
+      `https://api.twitch.tv/helix/streams?user_login=${CHANNEL_NAME}`,
+      {
+        headers: {
+          "Client-ID": p5ec6uqdkek2eqs9hauhb6gjm640br
+        }
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.data && data.data.length > 0) {
+      // LIVE
+      offlineBanner.style.display = "none";
+      twitchContainer.style.display = "block";
+
+      statusText.textContent = "Currently: Live";
+      statusText.dataset.live = "true";
+    } else {
+      // OFFLINE
+      twitchContainer.style.display = "none";
+      offlineBanner.style.display = "block";
+
+      statusText.textContent = "Currently: Offline";
+      statusText.dataset.live = "false";
+    }
+  } catch (error) {
+    console.error("Twitch live check failed:", error);
+  }
+}
+
+// Run immediately
+checkIfLive();
+
+// Check every 60 seconds
+setInterval(checkIfLive, 60000);
+</script>
+<!-- <script src="script.js"></script>
   <script src="https://embed.twitch.tv/embed/v1.js"></script>
 
 <script>
@@ -229,9 +291,10 @@ Hi! I’m Rhowyen, a green-haired, clown-loving, cozy streamer who loves chill g
       statusText.dataset.live = "false";
     });
   });
-</script>
+</script> -->
 </body>
 </html>
+
 
 
 
