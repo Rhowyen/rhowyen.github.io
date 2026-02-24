@@ -77,7 +77,7 @@ const discordFrame = document.querySelector(".discord-container iframe");
 
 function updateDiscordTheme(){
   const theme = document.documentElement.dataset.theme === "day" ? "light" : "dark";
-  const serverID = "YOUR_SERVER_ID";
+  const serverID = "1219428215546712117";
 
   discordFrame.src = `https://discord.com/widget?id=${serverID}&theme=${theme}`;
 }
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const embed = new Twitch.Embed("twitch-embed", {
       width: "100%",
       height: 480,
-      channel: "rhowyen",
+      channel: "dango_rangus",
       layout: "video",
       autoplay: false,
       muted: true,
@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
 
