@@ -26,7 +26,7 @@ document.addEventListener("mousemove", (e) => {
 
   setTimeout(() => {
     sparkle.remove();
-  }, 400);
+  }, 1400);
 });
 
 /* Blessing */
@@ -87,6 +87,7 @@ updateDiscordTheme();
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
+
 
 
 
