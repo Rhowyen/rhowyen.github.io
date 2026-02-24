@@ -71,32 +71,6 @@ document.getElementById("audio-toggle").onclick=()=>{
 audio.paused?audio.play():audio.pause();
 };
 
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
-resize();
-window.onresize=resize;
-
-let flies=Array.from({length:30},()=>({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2+1,
-dx:(Math.random()-0.5)*0.3,
-dy:(Math.random()-0.5)*0.3
-}));
-
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-flies.forEach(f=>{
-f.x+=f.dx;
-f.y+=f.dy;
-ctx.beginPath();
-ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-ctx.fillStyle="rgba(255,255,180,0.8)";
-ctx.fill();
-});
-requestAnimationFrame(animate);
-}
-animate();
-
 /* Discord Theme Sync */
 
 const discordFrame = document.querySelector(".discord-container iframe");
@@ -113,6 +87,7 @@ updateDiscordTheme();
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
+
 
 
 
