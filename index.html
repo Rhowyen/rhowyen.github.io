@@ -67,8 +67,18 @@ mnfv <!DOCTYPE html>
 <!-- Main Column -->
 <main class="content box flex-1 flex flex-col gap-6">
 
-<img id="offline-banner" src="assets/pics/offlinebanner.jpg" />
+<div id="stream-container">
 
+  <!-- OFFLINE BANNER -->
+  <img id="offline-banner"
+       src="assets/pics/offlinebanner.jpg"
+       style="display:block;" />
+
+  <!-- TWITCH PLAYER (hidden until live) -->
+  <div id="twitch-embed"
+       style="display:none; width:100%; height:480px;"></div>
+
+</div>
 <section class="box">
 <h2 class="section-title">About Me</h2>
 <p>
@@ -182,8 +192,47 @@ Hi! I’m Rhowyen, a green-haired, clown-loving, cozy streamer who loves chill g
 </div>
 
 <script src="script.js"></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+<script>
+  const statusText = document.querySelector(".status");
+  const offlineBanner = document.getElementById("offline-banner");
+  const twitchContainer = document.getElementById("twitch-embed");
+
+  const embed = new Twitch.Embed("twitch-embed", {
+    width: "100%",
+    height: 480,
+    channel: "rhowyen",
+    layout: "video",
+    autoplay: false,
+    muted: true,
+    theme: "dark",
+    parent: ["rhowyen.github.io"]
+  });
+
+  embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+    const player = embed.getPlayer();
+
+    player.addEventListener(Twitch.Player.ONLINE, () => {
+      offlineBanner.style.display = "none";
+      twitchContainer.style.display = "block";
+
+      statusText.textContent = "Currently: Live";
+      statusText.dataset.live = "true";
+    });
+
+    player.addEventListener(Twitch.Player.OFFLINE, () => {
+      twitchContainer.style.display = "none";
+      offlineBanner.style.display = "block";
+
+      statusText.textContent = "Currently: Offline";
+      statusText.dataset.live = "false";
+    });
+  });
+</script>
 </body>
 </html>
+
 
 
 
