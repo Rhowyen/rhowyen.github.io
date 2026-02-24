@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const embed = new Twitch.Embed("twitch-embed", {
       width: "100%",
       height: 480,
-      channel: "dango_rangus",
+      channel: "rhowyen",
       layout: "video",
       autoplay: false,
       muted: true,
@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
 
