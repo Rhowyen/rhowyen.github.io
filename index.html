@@ -213,7 +213,7 @@ const embed = new Twitch.Embed("twitch-embed", {
   parent: ["rhowyen.github.io"]
 });
 
-// 🔥 LIVE CHECK FUNCTION
+
 async function checkIfLive() {
   try {
     const response = await fetch(
@@ -228,7 +228,7 @@ async function checkIfLive() {
     const data = await response.json();
 
     if (data.data && data.data.length > 0) {
-      // LIVE
+
       offlineBanner.style.display = "none";
       twitchContainer.style.display = "block";
 
@@ -294,6 +294,7 @@ setInterval(checkIfLive, 60000);
 </script> -->
 </body>
 </html>
+
 
 
 
