@@ -26,7 +26,7 @@ document.addEventListener("mousemove", (e) => {
 
   setTimeout(() => {
     sparkle.remove();
-  }, 800);
+  }, 950);
 });
 
 /* Blessing */
@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
 
