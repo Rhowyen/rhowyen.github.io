@@ -98,39 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!statusText || !offlineBanner || !twitchContainer) return;
 
-  // Load Twitch Embed Script
-  const twitchScript = document.createElement("script");
-  twitchScript.src = "https://embed.twitch.tv/embed/v1.js";
-  twitchScript.onload = initTwitch;
-  document.body.appendChild(twitchScript);
-
-  function initTwitch() {
-
-    const embed = new Twitch.Embed("twitch-embed", {
-      width: "100%",
-      height: 480,
-      channel: "rhowyen",
-      layout: "video",
-      autoplay: false,
-      muted: true,
-      parent: ["rhowyen.github.io"]
-    });
-
-    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-      const player = embed.getPlayer();
-
-      // When stream actually starts playing → assume LIVE
-      player.addEventListener(Twitch.Player.PLAY, () => {
-        goLive();
-      });
-
-      // If stream stops → assume OFFLINE
-      player.addEventListener(Twitch.Player.ENDED, () => {
-        goOffline();
-      });
-    });
-  }
-
   function goLive() {
     offlineBanner.style.display = "none";
     twitchContainer.style.display = "block";
@@ -145,13 +112,41 @@ document.addEventListener("DOMContentLoaded", function () {
     statusText.dataset.live = "false";
   }
 
+  function checkLive() {
+    fetch("https://decapi.me/twitch/uptime/rhowyen")
+      .then(res => res.text())
+      .then(text => {
+        if (text.includes("offline")) {
+          goOffline();
+        } else {
+          goLive();
+          loadPlayer();
+        }
+      })
+      .catch(() => {
+        goOffline();
+      });
+  }
+
+  function loadPlayer() {
+    if (window.twitchLoaded) return;
+
+    const script = document.createElement("script");
+    script.src = "https://embed.twitch.tv/embed/v1.js";
+    script.onload = function () {
+      new Twitch.Embed("twitch-embed", {
+        width: "100%",
+        height: 480,
+        channel: "rhowyen",
+        parent: ["rhowyen.github.io"]
+      });
+    };
+
+    document.body.appendChild(script);
+    window.twitchLoaded = true;
+  }
+
+  checkLive();
+  setInterval(checkLive, 60000); // check every 60 seconds
+
 });
-
-
-
-
-
-
-
-
-
