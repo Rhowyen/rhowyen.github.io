@@ -364,8 +364,8 @@ html[data-theme="day"] .modal-content{
   padding: 12px 18px;
   text-align: center;
   border-radius: 14px;
-  background:var(--glass);
-border:1px solid var(--border);
+  /* background:var(--glass); */
+  border:1px solid var(--border);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   font-weight: 600;
@@ -424,6 +424,7 @@ border:1px solid var(--border);
     flex-direction: column;
   }
 }
+
 
 
 
