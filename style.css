@@ -149,6 +149,8 @@ border-radius:18px;
 /* announcements board */
 .announcment-board {
   position: relative;
+  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
   background: #c79a63; /* cork color */
   padding: 1.5rem;
   border-radius: 12px;
@@ -487,6 +489,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
