@@ -146,7 +146,70 @@ border-radius:18px;
   transition: opacity 0.5s ease, transform 0.8s ease;
 }
 
+/* announcements board */
+.announcment-board {
+  position: relative;
+  background: #c79a63; /* cork color */
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 8px solid #8b5e34; /* wood frame */
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.25),
+    0 10px 25px rgba(0,0,0,0.4);
+}
 
+/* Make list look clean */
+.announcment-board ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sticky Notes  */
+
+.announcment-board li {
+  position: relative;
+  background: #fff6a9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.35);
+  transform: rotate(-2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Make each note slightly different */
+.announcment-board li:nth-child(2) {
+  background: #ffd1dc;
+  transform: rotate(2deg);
+}
+
+.announcment-board li:nth-child(3) {
+  background: #caffbf;
+  transform: rotate(-1deg);
+}
+
+/* Hover effect */
+.announcment-board li:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 6px 10px 20px rgba(0,0,0,0.45);
+}
+
+/* Push pin */
+.announcment-board li::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: crimson;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
 /* Blessing Button */
 
 .blessing-btn{
@@ -424,6 +487,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
