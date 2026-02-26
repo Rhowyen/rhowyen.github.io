@@ -66,6 +66,22 @@ height:100%;
 .twitch-glow:hover, .twitch:hover{box-shadow:0 0 25px #9146ff;}
 .youtube-glow:hover, .youtube:hover{box-shadow:0 0 25px #ff0000;}
 
+/* Offline banner  */
+#stream-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+}
+
+#offline-banner {
+  max-width: 100%;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
 /* Links */
 .links-grid{
 display:grid;
@@ -489,6 +505,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
