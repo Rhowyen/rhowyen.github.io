@@ -79,7 +79,7 @@ height:100%;
   width: 100%;
   max-width: 900px;
   height: auto;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 12px;
 }
 /* Links */
@@ -505,6 +505,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
