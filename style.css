@@ -45,11 +45,7 @@ padding:1.5rem;
 border:1px solid var(--border);
 backdrop-filter:blur(10px);
 }
-/* offline banner */
-.offlineBanner {
-  display: flex;
-  justify-content: center
-}
+
 /* Embeds */
 .embed-wrapper{
 position:relative;
@@ -493,6 +489,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
