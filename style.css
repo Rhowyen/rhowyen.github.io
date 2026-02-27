@@ -191,7 +191,7 @@ border-radius:18px;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 6px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Just Another Hand", cursive;
   color: #333;
   box-shadow: 4px 6px 12px rgba(0,0,0,0.35);
   transform: rotate(-2deg);
@@ -505,6 +505,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
