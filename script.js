@@ -64,9 +64,9 @@ function updateThemeButton() {
   const currentTheme = document.documentElement.dataset.theme;
 
   if (currentTheme === "day") {
-    themeBtn.textContent = "Enter the Night";
+    themeBtn.textContent = "The Haunted Forest";
   } else {
-    themeBtn.textContent = "Summon Golden Hour";
+    themeBtn.textContent = "The Sun-lit Temple";
   }
 }
 
@@ -168,4 +168,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(checkLive, 60000); // check every 60 seconds
 
 });
+
 
