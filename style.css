@@ -558,14 +558,7 @@ html[data-theme="day"] .modal-content{
   }
 }
 
-@keyframes goldenPulse{
-  0%{ filter:brightness(1); }
-  100%{ filter:brightness(1.05); }
-}
 
-html[data-theme="day"] body{
-  animation:goldenPulse 4s ease-in-out infinite alternate;
-}
 
 
 
