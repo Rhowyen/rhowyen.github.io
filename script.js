@@ -64,9 +64,9 @@ function updateThemeButton() {
   const currentTheme = document.documentElement.dataset.theme;
 
   if (currentTheme === "day") {
-    themeBtn.textContent = "The Haunted Forest";
+    themeBtn.textContent = "Dark Mode";
   } else {
-    themeBtn.textContent = "The Sun-lit Temple";
+    themeBtn.textContent = "Light Mode";
   }
 }
 
@@ -88,6 +88,7 @@ audio.volume=0.3;
 document.getElementById("audio-toggle").onclick=()=>{
 audio.paused?audio.play():audio.pause();
 };
+
 
 /* Discord Theme Sync */
 
@@ -168,5 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(checkLive, 60000); // check every 60 seconds
 
 });
+
 
 
