@@ -7,9 +7,9 @@
 }
 
 html[data-theme="day"]{
-/* --bg-main:#efe7db;
+--bg-main:#efe7db;
 --bg-soft:#f7f1e6;
---text-main:#2e2a26; */
+--text-main:#2e2a26;
 }
 
 body{
@@ -508,6 +508,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 }
+
 
 
 
