@@ -546,6 +546,15 @@ html[data-theme="day"] .modal-content{
 };
 }
 
+.portal-btn[data-theme="day"]{
+ background:linear-gradient(
+    135deg,
+    rgba(11,61,40,0.15),
+    rgba(212,175,55,0.15),
+    rgba(11,61,40,0.1)
+  );
+}
+
 /* Soft lantern glow inside section */
 
 .merch-stall::before {
@@ -566,5 +575,6 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 } 
+
 
 
