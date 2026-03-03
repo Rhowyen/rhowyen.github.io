@@ -58,11 +58,29 @@ bcModal.style.display="flex";
 bcClose.onclick=()=>bcModal.style.display="none";
 
 /* Theme */
-const themeBtn=document.getElementById("theme-toggle");
-themeBtn.onclick=()=>{
-const html=document.documentElement;
-html.dataset.theme=html.dataset.theme==="day"?"night":"day";
+const themeBtn = document.getElementById("theme-toggle");
+
+function updateThemeButton() {
+  const currentTheme = document.documentElement.dataset.theme;
+
+  if (currentTheme === "day") {
+    themeBtn.textContent = "Enter the Night";
+  } else {
+    themeBtn.textContent = "Summon Golden Hour";
+  }
+}
+
+themeBtn.onclick = () => {
+  const html = document.documentElement;
+
+  html.dataset.theme =
+    html.dataset.theme === "day" ? "night" : "day";
+
+  updateThemeButton();
 };
+
+// Set initial button text on page load
+updateThemeButton();
 
 /* Audio */
 const audio=document.getElementById("forest-audio");
@@ -150,3 +168,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(checkLive, 60000); // check every 60 seconds
 
 });
+
