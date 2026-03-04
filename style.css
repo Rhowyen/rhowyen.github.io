@@ -261,10 +261,6 @@ border-radius:18px;
   transform: rotate(-1deg);
 }
 
-.announcment-board li::before {
-  background: #d4af37;
-}
-
 /* Hover effect */
 .announcment-board li:hover {
   transform: rotate(0deg) scale(1.05);
@@ -325,10 +321,8 @@ border-radius:18px;
 
 .blessing-btn:hover{
   box-shadow:
-    box-shadow:
     0 0 15px rgba(212,175,55,0.6),
     0 0 25px rgba(11,61,40,0.5);
-}
   transform:translateY(-3px);
 }
 
@@ -390,18 +384,7 @@ border-radius:18px;
   transform:scale(1.05);
 }
 
-/* Portal entrance */
 
-@keyframes portalIn{
-  0%{
-    opacity:0;
-    transform:scale(0.8) rotate(-2deg);
-  }
-  100%{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
-}
 
 /* Glitch flicker */
 
@@ -531,30 +514,37 @@ html[data-theme="day"] .modal-content{
   display: inline-block;
   padding: 14px 26px;
   border-radius: 999px;
-  border: 1px solid var(--glass-border);
-  background: linear-gradient(135deg, rgba(8,26,18,0.9), rgba(30,40,25,0.9));;
+  border: 1px solid var(--border);
+  background: var(--glass);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   font-weight: 600;
 }
 
+/* Dark mode hover */
 .portal-btn:hover {
   transform: scale(1.05);
   box-shadow:
     0 0 25px rgba(212,175,55,0.6),
     0 0 50px rgba(11,61,40,0.4);
-};
 }
 
+/* Light mode override */
 html[data-theme="day"] .portal-btn {
- background:linear-gradient(
+  background: linear-gradient(
     135deg,
-    rgba(11,61,40,0.15),
-    rgba(212,175,55,0.15),
-    rgba(11,61,40,0.1)
+    rgba(11,61,40,0.12),
+    rgba(212,175,55,0.18)
   );
+  border: 1px solid var(--border);
 }
 
+/* Light mode hover */
+html[data-theme="day"] .portal-btn:hover {
+  box-shadow:
+    0 0 25px rgba(11,61,40,0.4),
+    0 0 50px rgba(212,175,55,0.3);
+}
 /* Soft lantern glow inside section */
 
 .merch-stall::before {
@@ -575,6 +565,7 @@ html[data-theme="day"] .portal-btn {
     flex-direction: column;
   }
 } 
+
 
 
 
