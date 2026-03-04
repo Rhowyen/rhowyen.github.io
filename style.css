@@ -546,7 +546,7 @@ html[data-theme="day"] .modal-content{
 };
 }
 
-.portal-btn[data-theme="day"]{
+html[data-theme="day"] .portal-btn {
  background:linear-gradient(
     135deg,
     rgba(11,61,40,0.15),
@@ -575,6 +575,7 @@ html[data-theme="day"] .modal-content{
     flex-direction: column;
   }
 } 
+
 
 
 
