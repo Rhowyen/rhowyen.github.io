@@ -215,6 +215,7 @@ border-radius:18px;
 .announcment-board {
   position: relative;
   background: #e4cfa3; 
+ color: var(--text-main);
   background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
   background-size: 4px 4px;
   padding: 1.5rem;
@@ -565,6 +566,7 @@ html[data-theme="day"] .portal-btn:hover {
     flex-direction: column;
   }
 } 
+
 
 
 
