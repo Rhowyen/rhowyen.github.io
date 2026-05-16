@@ -29,17 +29,20 @@ document.addEventListener("mousemove", (e) => {
   }, 950);
 });
 
-/* Blessing */
+/* Blessings */
 const blessings=[
 "You gain radiant forest luck.",
+"A mysterious potion grants you a second wind.",
 "A hidden ally appears.",
 "Your energy is restored.",
 "Your next stream will be unexpectedly successful."
 ];
 
+/* Curses */
 const curses=[
 "A shadow lingers.",
 "You misplace something small.",
+"A mysterious potion turns out to be laxative.",
 "Minor chaos approaches.",
 "You will stub your toe in 57 hours."
 ];
@@ -90,8 +93,7 @@ audio.paused?audio.play():audio.pause();
 };
 
 
-/* Discord Theme Sync */
-
+/* Discord Theme Sync */
 const discordFrame = document.querySelector(".discord-container iframe");
 
 function updateDiscordTheme(){
@@ -107,8 +109,7 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
   setTimeout(updateDiscordTheme, 100);
 });
 
-// Twitch Live Detection
-
+/* Twitch Live Detection*/
 document.addEventListener("DOMContentLoaded", function () {
 
   const statusText = document.querySelector(".status");
